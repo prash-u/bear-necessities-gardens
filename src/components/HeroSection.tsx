@@ -1,35 +1,92 @@
+import { Instagram } from "lucide-react";
 import heroImage from "@/assets/hero-garden.jpg";
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section
+      id="home"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden"
+    >
       <img
         src={heroImage}
-        alt="Beautiful landscaped garden at golden hour"
-        className="absolute inset-0 w-full h-full object-cover"
+        alt="A beautifully maintained garden in warm evening light"
+        className="absolute inset-0 h-full w-full object-cover"
         width={1920}
         height={1080}
       />
-      <div className="absolute inset-0" style={{ background: "var(--hero-overlay)" }} />
+      <div
+        className="absolute inset-0"
+        style={{ background: "var(--hero-overlay)" }}
+      />
 
-      <div className="relative z-10 container text-center px-4">
-        <p className="text-primary-foreground/80 font-body text-sm md:text-base tracking-widest uppercase mb-4 animate-fade-in-up">
-          Professional Garden & Landscaping Services
-        </p>
-        <h1 className="font-heading text-4xl sm:text-5xl md:text-7xl font-bold text-primary-foreground mb-6 animate-fade-in-up text-balance" style={{ animationDelay: "0.15s" }}>
-          Your Garden, <br className="hidden sm:block" />Our Passion
-        </h1>
-        <p className="max-w-2xl mx-auto text-primary-foreground/80 text-base md:text-lg mb-8 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
-          Transforming outdoor spaces into stunning, living landscapes. From design to maintenance, we bring nature's beauty to your doorstep.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: "0.45s" }}>
-          <Button size="lg" asChild>
-            <a href="#contact">Get a Free Quote</a>
-          </Button>
-          <Button variant="outline" size="lg" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10" asChild>
-            <a href="#services">Our Services</a>
-          </Button>
+      <div className="container relative z-10 px-4 pb-16 pt-28 md:pb-24 md:pt-36">
+        <div className="mx-auto max-w-4xl text-center">
+          <p className="animate-fade-in-up mb-4 text-sm uppercase tracking-[0.28em] text-primary-foreground/80 md:text-base">
+            Gardens, the Bear Way
+          </p>
+          <h1
+            className="animate-fade-in-up text-balance text-4xl font-bold text-primary-foreground sm:text-5xl md:text-7xl"
+            style={{ animationDelay: "0.15s" }}
+          >
+            Bear Necessities Gardens
+          </h1>
+          <p
+            className="animate-fade-in-up mx-auto mt-6 max-w-2xl text-balance text-lg text-primary-foreground/90 md:text-2xl"
+            style={{ animationDelay: "0.3s" }}
+          >
+            The bear essentials for beautiful outdoor spaces.
+          </p>
+          <p
+            className="animate-fade-in-up mx-auto mt-5 max-w-2xl text-base leading-8 text-primary-foreground/75 md:text-lg"
+            style={{ animationDelay: "0.4s" }}
+          >
+            Thoughtful garden maintenance, tidy-ups, and seasonal refreshes
+            with a classy finish and just enough personality to stay memorable.
+          </p>
+          <div
+            className="animate-fade-in-up mt-8 flex flex-col justify-center gap-4 sm:flex-row"
+            style={{ animationDelay: "0.55s" }}
+          >
+            <Button size="lg" asChild>
+              <a
+                href="https://www.instagram.com/bear.necessities.gardens/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Instagram className="h-4 w-4" />
+                Visit Instagram
+              </a>
+            </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-primary-foreground/30 bg-primary-foreground/5 text-primary-foreground hover:bg-primary-foreground/10"
+              asChild
+            >
+              <a href="#services">Explore Services</a>
+            </Button>
+          </div>
+        </div>
+
+        <div
+          className="animate-fade-in-up mt-12 grid gap-4 md:mt-16 md:grid-cols-3"
+          style={{ animationDelay: "0.7s" }}
+        >
+          {[
+            "From overgrown to un-bear-lievably good.",
+            "Instagram-first for current work and quick enquiries.",
+            "A calm, polished look without the generic template feel.",
+          ].map((item) => (
+            <div
+              key={item}
+              className="rounded-[1.5rem] border border-primary-foreground/15 bg-primary-foreground/8 p-5 text-left backdrop-blur-sm"
+            >
+              <p className="text-sm leading-7 text-primary-foreground/85">
+                {item}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

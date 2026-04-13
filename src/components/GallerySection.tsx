@@ -1,0 +1,118 @@
+import { Instagram } from "lucide-react";
+import gardenPatio from "@/assets/garden-patio.jpg";
+import gardenPlanting from "@/assets/garden-planting.jpg";
+import gardenMaintenance from "@/assets/garden-maintenance.jpg";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Button } from "@/components/ui/button";
+
+const galleryItems = [
+  {
+    image: gardenPatio,
+    title: "Outdoor spaces with a settled, welcoming feel",
+    description:
+      "Use this space for patios, seating areas, and garden corners that deserve a cleaner, more polished finish.",
+  },
+  {
+    image: gardenPlanting,
+    title: "Borders, planting, and seasonal texture",
+    description:
+      "A ready-made slot for future photos from Google Drive exports once local project images are added to the repo.",
+  },
+  {
+    image: gardenMaintenance,
+    title: "From overgrown to un-bear-lievably good",
+    description:
+      "Ideal for before-and-after shots, regular maintenance highlights, or tidy-up work worth showing off.",
+  },
+];
+
+const GallerySection = () => {
+  return (
+    <section id="gallery" className="bg-background py-20 md:py-28">
+      <div className="container px-4">
+        <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-3xl">
+            <p className="mb-2 text-sm font-medium uppercase tracking-[0.24em] text-primary">
+              Gallery
+            </p>
+            <h2 className="text-balance text-3xl font-bold text-foreground md:text-5xl">
+              A polished gallery, ready for your real garden photos.
+            </h2>
+            <p className="mt-4 text-base leading-8 text-muted-foreground">
+              The carousel is already wired for local project images, so later
+              on you can swap in exported photos and keep the same elegant
+              layout without rebuilding the page.
+            </p>
+          </div>
+          <Button asChild variant="outline" size="lg">
+            <a
+              href="https://www.instagram.com/bear.necessities.gardens/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Instagram className="h-4 w-4" />
+              See latest on Instagram
+            </a>
+          </Button>
+        </div>
+
+        <div className="rounded-[2rem] border border-border/70 bg-card/80 p-5 shadow-[0_24px_80px_-48px_rgba(40,67,52,0.45)] backdrop-blur">
+          <Carousel
+            opts={{
+              loop: true,
+              align: "start",
+            }}
+            className="mx-auto w-full"
+          >
+            <CarouselContent className="-ml-0">
+              {galleryItems.map((item) => (
+                <CarouselItem key={item.title} className="basis-full pl-0">
+                  <div className="overflow-hidden rounded-[1.5rem]">
+                    <div className="grid gap-0 lg:grid-cols-[1.15fr_0.85fr]">
+                      <div className="overflow-hidden">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          loading="lazy"
+                          className="aspect-[4/3] h-full w-full object-cover"
+                        />
+                      </div>
+                      <div className="flex flex-col justify-between bg-secondary/35 p-8 md:p-10">
+                        <div>
+                          <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
+                            Placeholder gallery slide
+                          </p>
+                          <h3 className="mt-4 text-2xl font-semibold text-foreground md:text-3xl">
+                            {item.title}
+                          </h3>
+                          <p className="mt-4 text-sm leading-7 text-muted-foreground md:text-base">
+                            {item.description}
+                          </p>
+                        </div>
+                        <p className="mt-8 text-sm leading-7 text-muted-foreground">
+                          Later, replace these local images with project photos
+                          in `src/assets/` or move them into `public/images/`
+                          if you want file-based gallery management.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="bottom-4 left-4 top-auto translate-y-0 bg-background/90" />
+            <CarouselNext className="bottom-4 right-4 top-auto translate-y-0 bg-background/90" />
+          </Carousel>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default GallerySection;
