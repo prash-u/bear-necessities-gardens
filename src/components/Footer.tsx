@@ -1,5 +1,10 @@
+<<<<<<< Updated upstream
 import { Instagram, ArrowUp } from "lucide-react";
+=======
+import { Instagram, Mail } from "lucide-react";
+>>>>>>> Stashed changes
 import logo from "@/assets/logo.png";
+import { business } from "@/data/siteContent";
 
 const Footer = () => {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
@@ -7,6 +12,7 @@ const Footer = () => {
   return (
     <footer className="bg-foreground py-16">
       <div className="container px-4">
+<<<<<<< Updated upstream
         <div className="grid gap-10 md:grid-cols-3">
           {/* Brand */}
           <div>
@@ -44,6 +50,34 @@ const Footer = () => {
                   {link.label}
                 </a>
               ))}
+=======
+        <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
+          <div className="flex items-center gap-2">
+            <img src={logo} alt={business.name} className="h-8 w-8" />
+            <span className="font-heading text-lg font-semibold text-primary-foreground">
+              {business.name}
+            </span>
+          </div>
+          <div className="text-center md:text-right">
+            <p className="text-sm text-primary-foreground/70">
+              {business.tagline}
+            </p>
+            <div className="mt-3 flex items-center justify-center gap-6 md:justify-end">
+              <a
+                href={`mailto:${business.email}`}
+                className="text-primary-foreground/60 transition-colors hover:text-primary-foreground"
+              >
+                <Mail className="h-5 w-5" />
+              </a>
+              <a
+                href={business.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary-foreground/60 transition-colors hover:text-primary-foreground"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
+>>>>>>> Stashed changes
             </div>
           </div>
 

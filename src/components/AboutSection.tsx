@@ -1,4 +1,5 @@
 import logo from "@/assets/logo.png";
+<<<<<<< Updated upstream
 import gardenerAtWork from "@/assets/gardener-at-work.jpg";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Shield, Heart, Clock, Sparkles } from "lucide-react";
@@ -9,6 +10,9 @@ const values = [
   { icon: Clock, title: "Flexible", desc: "Scheduling that works around your life." },
   { icon: Sparkles, title: "Thorough", desc: "Every detail noticed, nothing overlooked." },
 ];
+=======
+import { aboutStats } from "@/data/siteContent";
+>>>>>>> Stashed changes
 
 const AboutSection = () => {
   const { ref, isVisible } = useScrollReveal();
@@ -40,6 +44,7 @@ const AboutSection = () => {
               easier to enjoy. No hard sell, no fluff — just the right details
               handled well.
             </p>
+<<<<<<< Updated upstream
 
             <div className="grid grid-cols-2 gap-4">
               {values.map((v, i) => (
@@ -57,6 +62,13 @@ const AboutSection = () => {
                     <p className="font-heading font-semibold text-foreground text-sm">{v.title}</p>
                     <p className="text-xs text-muted-foreground mt-0.5">{v.desc}</p>
                   </div>
+=======
+            <div className="flex flex-wrap gap-8">
+              {aboutStats.map((stat) => (
+                <div key={stat.label}>
+                  <p className="text-2xl md:text-3xl font-heading font-bold text-primary">{stat.value}</p>
+                  <p className="text-xs text-muted-foreground">{stat.label}</p>
+>>>>>>> Stashed changes
                 </div>
               ))}
             </div>

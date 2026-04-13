@@ -1,6 +1,7 @@
 import { ArrowRight, Instagram, Mail, ChevronDown } from "lucide-react";
 import heroImage from "@/assets/hero-garden.jpg";
 import { Button } from "@/components/ui/button";
+import { business, showcaseNotes } from "@/data/siteContent";
 
 const HeroSection = () => {
   return (
@@ -36,14 +37,18 @@ const HeroSection = () => {
             className="animate-fade-in-up text-balance text-4xl font-bold text-primary-foreground sm:text-5xl md:text-7xl lg:text-8xl leading-[0.95]"
             style={{ animationDelay: "0.15s" }}
           >
+<<<<<<< Updated upstream
             Bear Necessities
             <span className="block text-primary-foreground/70 mt-2">Gardens</span>
+=======
+            {business.name}
+>>>>>>> Stashed changes
           </h1>
           <p
             className="animate-fade-in-up mx-auto mt-6 max-w-2xl text-balance text-lg text-primary-foreground/85 md:text-2xl font-light"
             style={{ animationDelay: "0.3s" }}
           >
-            The bear essentials for beautiful outdoor spaces.
+            {business.tagline}
           </p>
           <p
             className="animate-fade-in-up mx-auto mt-5 max-w-xl text-base leading-8 text-primary-foreground/60"
@@ -80,7 +85,7 @@ const HeroSection = () => {
               asChild
             >
               <a
-                href="https://www.instagram.com/bear.necessities.gardens/"
+                href={business.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -95,11 +100,15 @@ const HeroSection = () => {
           className="animate-fade-in-up mt-16 grid gap-4 md:mt-20 md:grid-cols-3"
           style={{ animationDelay: "0.7s" }}
         >
+<<<<<<< Updated upstream
           {[
             { emoji: "🌿", text: "From overgrown to un-bear-lievably good." },
             { emoji: "✨", text: "Professional garden care with a calm, polished finish." },
             { emoji: "📸", text: "Recent work available on Instagram — check it out." },
           ].map((item) => (
+=======
+          {showcaseNotes.map((item) => (
+>>>>>>> Stashed changes
             <div
               key={item.text}
               className="group rounded-[1.5rem] border border-primary-foreground/10 bg-primary-foreground/5 p-6 text-left backdrop-blur-md transition-all duration-300 hover:bg-primary-foreground/8 hover:border-primary-foreground/20"

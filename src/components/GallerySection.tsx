@@ -1,4 +1,5 @@
 import { Instagram } from "lucide-react";
+<<<<<<< Updated upstream
 import gardenPatio from "@/assets/garden-patio.jpg";
 import gardenPlanting from "@/assets/garden-planting.jpg";
 import gardenMaintenance from "@/assets/garden-maintenance.jpg";
@@ -16,6 +17,17 @@ const galleryItems = [
   { image: gardenLawn, title: "Manicured lawns and crisp edges", span: "col-span-1 row-span-1" },
   { image: gardenMaintenance, title: "Regular care keeps gardens thriving", span: "col-span-1 row-span-1" },
 ];
+=======
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Button } from "@/components/ui/button";
+import { business, galleryItems } from "@/data/siteContent";
+>>>>>>> Stashed changes
 
 const GallerySection = () => {
   const { ref, isVisible } = useScrollReveal();
@@ -42,7 +54,7 @@ const GallerySection = () => {
           </div>
           <Button asChild variant="outline" size="lg" className="rounded-full shrink-0">
             <a
-              href="https://www.instagram.com/bear.necessities.gardens/"
+              href={business.instagram}
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { ArrowRight, Instagram, Mail, MapPin, Phone, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+<<<<<<< Updated upstream
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+=======
+import { business } from "@/data/siteContent";
+>>>>>>> Stashed changes
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -26,7 +30,12 @@ const ContactSection = () => {
     const body = encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService interest: ${formData.service}\n\nProject details:\n${formData.message}`,
     );
+<<<<<<< Updated upstream
     window.location.href = `mailto:bearnecessitiesgardens@gmail.com?subject=${subject}&body=${body}`;
+=======
+
+    window.location.href = `mailto:${business.email}?subject=${subject}&body=${body}`;
+>>>>>>> Stashed changes
   };
 
   const { ref, isVisible } = useScrollReveal();
@@ -56,6 +65,7 @@ const ContactSection = () => {
         </div>
 
         <div className="mx-auto grid max-w-5xl gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+<<<<<<< Updated upstream
           <div
             className={`space-y-5 transition-all duration-700 delay-100 ${
               isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
@@ -123,9 +133,35 @@ const ContactSection = () => {
                     </div>
                   </div>
                 ))}
+=======
+          <div className="rounded-[1.75rem] border border-border bg-card p-8 shadow-[0_24px_80px_-48px_rgba(40,67,52,0.35)]">
+            <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
+              Contact details
+            </p>
+            <div className="mt-8 space-y-8">
+              <div className="flex items-start gap-4">
+                <div className="h-10 w-10 rounded-xl bg-accent flex items-center justify-center shrink-0">
+                  <Instagram className="h-5 w-5 text-accent-foreground" />
+                </div>
+                <div>
+                  <h3 className="font-heading font-semibold text-foreground mb-1">Instagram</h3>
+                  <a
+                    href={business.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary text-sm hover:underline"
+                  >
+                    @bear.necessities.gardens
+                  </a>
+                  <p className="mt-2 text-sm leading-7 text-muted-foreground">
+                    A useful place to browse recent jobs and garden updates.
+                  </p>
+                </div>
+>>>>>>> Stashed changes
               </div>
             </div>
 
+<<<<<<< Updated upstream
             {/* Trust badge */}
             <div className="rounded-[1.5rem] border border-border bg-card p-6">
               <div className="flex items-center gap-3">
@@ -138,6 +174,32 @@ const ContactSection = () => {
                       {e}
                     </span>
                   ))}
+=======
+              <div className="flex items-start gap-4">
+                <div className="h-10 w-10 rounded-xl bg-accent flex items-center justify-center shrink-0">
+                  <Mail className="h-5 w-5 text-accent-foreground" />
+                </div>
+                <div>
+                  <h3 className="font-heading font-semibold text-foreground mb-1">Email</h3>
+                  <a
+                    href={`mailto:${business.email}`}
+                    className="text-primary text-sm hover:underline"
+                  >
+                    {business.email}
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="h-10 w-10 rounded-xl bg-accent flex items-center justify-center shrink-0">
+                  <MapPin className="h-5 w-5 text-accent-foreground" />
+                </div>
+                <div>
+                  <h3 className="font-heading font-semibold text-foreground mb-1">Location</h3>
+                  <p className="text-muted-foreground text-sm">
+                    Serving local gardens and nearby areas.
+                  </p>
+>>>>>>> Stashed changes
                 </div>
                 <p className="text-sm text-muted-foreground">
                   <span className="font-semibold text-foreground">Trusted locally</span> — happy
@@ -244,7 +306,12 @@ const ContactSection = () => {
                   className="rounded-full border-primary-foreground/20 bg-transparent text-primary-foreground hover:bg-primary-foreground/10"
                   asChild
                 >
+<<<<<<< Updated upstream
                   <a href="mailto:bearnecessitiesgardens@gmail.com">
+=======
+                  <a href={`mailto:${business.email}`}>
+                    Email directly
+>>>>>>> Stashed changes
                     <Mail className="h-4 w-4" />
                     Email directly
                   </a>

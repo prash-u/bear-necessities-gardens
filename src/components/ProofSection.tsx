@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import { ArrowUpRight, Quote, Star, Instagram } from "lucide-react";
 import gardenMaintenance from "@/assets/garden-maintenance.jpg";
 import gardenLawn from "@/assets/garden-lawn.jpg";
@@ -21,6 +22,15 @@ const feedback = [
     stars: 5,
   },
 ];
+=======
+import { ArrowUpRight, Quote, Star } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  business,
+  featuredCaseStudy,
+  proofFeedback,
+} from "@/data/siteContent";
+>>>>>>> Stashed changes
 
 const ProofSection = () => {
   const { ref, isVisible } = useScrollReveal();
@@ -46,6 +56,7 @@ const ProofSection = () => {
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+<<<<<<< Updated upstream
           <article
             className={`overflow-hidden rounded-[2rem] border border-border bg-card shadow-[0_24px_80px_-48px_rgba(40,67,52,0.4)] transition-all duration-700 delay-100 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -74,6 +85,32 @@ const ProofSection = () => {
                 This is the kind of transformation we love. An overgrown,
                 neglected space turned into something the homeowners can
                 genuinely enjoy spending time in.
+=======
+          <article className="overflow-hidden rounded-[2rem] border border-border bg-card shadow-[0_24px_80px_-48px_rgba(40,67,52,0.4)]">
+            <img
+              src={featuredCaseStudy.image}
+              alt="Featured garden maintenance example"
+              className="aspect-[16/10] w-full object-cover"
+              loading="lazy"
+              width={1200}
+              height={750}
+            />
+            <div className="p-8">
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="rounded-full bg-accent px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-accent-foreground">
+                  {featuredCaseStudy.badge}
+                </span>
+                <span className="rounded-full bg-secondary px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
+                  {featuredCaseStudy.category}
+                </span>
+              </div>
+
+              <h3 className="mt-5 text-2xl font-semibold text-foreground md:text-3xl">
+                {featuredCaseStudy.title}
+              </h3>
+              <p className="mt-4 text-sm leading-7 text-muted-foreground md:text-base">
+                {featuredCaseStudy.description}
+>>>>>>> Stashed changes
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -85,7 +122,7 @@ const ProofSection = () => {
                 </Button>
                 <Button asChild variant="outline" className="rounded-full">
                   <a
-                    href="https://www.instagram.com/bear.necessities.gardens/"
+                    href={business.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -97,8 +134,13 @@ const ProofSection = () => {
             </div>
           </article>
 
+<<<<<<< Updated upstream
           <div className="grid gap-4 content-start">
             {feedback.map((item, index) => (
+=======
+          <div className="grid gap-4">
+            {proofFeedback.map((item, index) => (
+>>>>>>> Stashed changes
               <article
                 key={item.quote}
                 className={`rounded-[1.75rem] border border-border bg-card/80 p-7 shadow-sm backdrop-blur transition-all duration-700 hover:shadow-lg hover:-translate-y-0.5 ${

@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import { Leaf, TreePine, Flower2, Shovel, Mountain, Droplets } from "lucide-react";
 import gardenPatio from "@/assets/garden-patio.jpg";
 import gardenPlanting from "@/assets/garden-planting.jpg";
@@ -18,6 +19,9 @@ const images = [
   { src: gardenPlanting, alt: "Colourful garden planting", label: "Planting & borders" },
   { src: gardenMaintenance, alt: "Well-maintained garden", label: "Regular maintenance" },
 ];
+=======
+import { servicePreviewImages, services } from "@/data/siteContent";
+>>>>>>> Stashed changes
 
 const ServicesSection = () => {
   const { ref, isVisible } = useScrollReveal();
@@ -73,6 +77,7 @@ const ServicesSection = () => {
           ))}
         </div>
 
+<<<<<<< Updated upstream
         <div
           className={`grid md:grid-cols-3 gap-4 transition-all duration-700 delay-500 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -92,6 +97,12 @@ const ServicesSection = () => {
               <p className="absolute bottom-4 left-4 text-sm font-medium text-primary-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 {img.label}
               </p>
+=======
+        <div className="grid md:grid-cols-3 gap-4">
+          {servicePreviewImages.map((img, i) => (
+            <div key={i} className="aspect-[4/3] overflow-hidden rounded-[1.5rem]">
+              <img src={img} alt="Bear Necessities Gardens work preview" loading="lazy" width={800} height={600} className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
+>>>>>>> Stashed changes
             </div>
           ))}
         </div>
