@@ -1,16 +1,44 @@
+import { useState } from "react";
 import { ArrowRight, Instagram, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const ContactSection = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange =
+    (field: "name" | "email" | "message") =>
+    (
+      event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    ) => {
+      setFormData((current) => ({ ...current, [field]: event.target.value }));
+    };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const subject = encodeURIComponent(
+      `Garden enquiry from ${formData.name || "website visitor"}`,
+    );
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nProject details:\n${formData.message}`,
+    );
+
+    window.location.href = `mailto:bearnecessitiesgardens@gmail.com?subject=${subject}&body=${body}`;
+  };
+
   return (
     <section id="contact" className="py-20 md:py-28" style={{ background: "var(--section-gradient)" }}>
       <div className="container px-4">
         <div className="text-center mb-16">
-          <p className="text-primary font-medium text-sm tracking-widest uppercase mb-2">Instagram</p>
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">The easiest place to start is Instagram.</h2>
+          <p className="text-primary font-medium text-sm tracking-widest uppercase mb-2">Contact</p>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">A professional first point of contact.</h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            For now, Instagram is the main home for recent work, garden
-            updates, and first enquiries.
+            The website should stand on its own. Use the enquiry form or email
+            directly, and keep Instagram as supporting proof of recent work.
           </p>
         </div>
 
@@ -35,7 +63,7 @@ const ContactSection = () => {
                     @bear.necessities.gardens
                   </a>
                   <p className="mt-2 text-sm leading-7 text-muted-foreground">
-                    Best for seeing current work and sending a quick message.
+                    A useful place to browse recent jobs and garden updates.
                   </p>
                 </div>
               </div>
@@ -71,41 +99,79 @@ const ContactSection = () => {
 
           <div className="rounded-[1.75rem] border border-border bg-foreground p-8 text-primary-foreground md:p-10">
             <p className="text-sm font-medium uppercase tracking-[0.22em] text-primary-foreground/70">
-              Start here
+              Enquiry form
             </p>
             <h3 className="mt-4 text-3xl font-semibold text-balance">
-              Follow along, browse the latest work, and send a message when your garden needs attention.
+              Tell Bear Necessities Gardens what your space needs.
             </h3>
             <p className="mt-4 text-base leading-8 text-primary-foreground/75">
-              This page is designed as a clean front door for the business, but
-              Instagram is the living feed. It is the best place to keep the
-              brand active while new project photos are added over time.
+              This form opens an email draft with your details so enquiries stay
+              simple and direct without relying on a separate backend service.
             </p>
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Button size="lg" variant="secondary" asChild>
-                <a
-                  href="https://www.instagram.com/bear.necessities.gardens/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Instagram className="h-4 w-4" />
-                  Open Instagram
-                </a>
-              </Button>
-              <Button size="lg" variant="outline" className="border-primary-foreground/20 bg-transparent text-primary-foreground hover:bg-primary-foreground/10" asChild>
-                <a href="mailto:bearnecessitiesgardens@gmail.com">
-                  Email instead
+            <form onSubmit={handleSubmit} className="mt-8 space-y-4">
+              <div>
+                <label className="mb-2 block text-sm font-medium text-primary-foreground/85">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={formData.name}
+                  onChange={handleChange("name")}
+                  className="w-full rounded-xl border border-primary-foreground/15 bg-primary-foreground/5 px-4 py-3 text-sm text-primary-foreground placeholder:text-primary-foreground/45 focus:outline-none focus:ring-2 focus:ring-primary-foreground/40"
+                  placeholder="Your name"
+                />
+              </div>
+              <div>
+                <label className="mb-2 block text-sm font-medium text-primary-foreground/85">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={handleChange("email")}
+                  className="w-full rounded-xl border border-primary-foreground/15 bg-primary-foreground/5 px-4 py-3 text-sm text-primary-foreground placeholder:text-primary-foreground/45 focus:outline-none focus:ring-2 focus:ring-primary-foreground/40"
+                  placeholder="you@example.com"
+                />
+              </div>
+              <div>
+                <label className="mb-2 block text-sm font-medium text-primary-foreground/85">
+                  Project details
+                </label>
+                <textarea
+                  required
+                  rows={5}
+                  value={formData.message}
+                  onChange={handleChange("message")}
+                  className="w-full rounded-xl border border-primary-foreground/15 bg-primary-foreground/5 px-4 py-3 text-sm text-primary-foreground placeholder:text-primary-foreground/45 focus:outline-none focus:ring-2 focus:ring-primary-foreground/40"
+                  placeholder="Tell us about the garden, the kind of help you need, and anything time-sensitive."
+                />
+              </div>
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <Button size="lg" variant="secondary" type="submit">
+                  Send Enquiry
                   <ArrowRight className="h-4 w-4" />
-                </a>
-              </Button>
-            </div>
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-primary-foreground/20 bg-transparent text-primary-foreground hover:bg-primary-foreground/10"
+                  asChild
+                >
+                  <a href="mailto:bearnecessitiesgardens@gmail.com">
+                    Email directly
+                    <Mail className="h-4 w-4" />
+                  </a>
+                </Button>
+              </div>
+            </form>
 
             <div className="mt-10 rounded-[1.5rem] border border-primary-foreground/10 bg-primary-foreground/5 p-5">
               <p className="text-sm leading-7 text-primary-foreground/75">
-                Suggested next step: post fresh project images into the gallery
-                and keep Instagram as the primary CTA until there is enough
-                portfolio work on-site to support a fuller enquiry form.
+                Instagram can still support credibility and fresh updates, but
+                the main conversion path now lives on the site itself.
               </p>
             </div>
           </div>

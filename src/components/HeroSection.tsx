@@ -1,4 +1,4 @@
-import { Instagram } from "lucide-react";
+import { ArrowRight, Instagram, Mail } from "lucide-react";
 import heroImage from "@/assets/hero-garden.jpg";
 import { Button } from "@/components/ui/button";
 
@@ -49,13 +49,9 @@ const HeroSection = () => {
             style={{ animationDelay: "0.55s" }}
           >
             <Button size="lg" asChild>
-              <a
-                href="https://www.instagram.com/bear.necessities.gardens/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Instagram className="h-4 w-4" />
-                Visit Instagram
+              <a href="#contact">
+                <Mail className="h-4 w-4" />
+                Request an Enquiry
               </a>
             </Button>
             <Button
@@ -64,7 +60,25 @@ const HeroSection = () => {
               className="border-primary-foreground/30 bg-primary-foreground/5 text-primary-foreground hover:bg-primary-foreground/10"
               asChild
             >
-              <a href="#services">Explore Services</a>
+              <a href="#services">
+                Explore Services
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </Button>
+            <Button
+              variant="ghost"
+              size="lg"
+              className="text-primary-foreground hover:bg-primary-foreground/10"
+              asChild
+            >
+              <a
+                href="https://www.instagram.com/bear.necessities.gardens/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Instagram className="h-4 w-4" />
+                View Recent Work
+              </a>
             </Button>
           </div>
         </div>
@@ -75,8 +89,8 @@ const HeroSection = () => {
         >
           {[
             "From overgrown to un-bear-lievably good.",
-            "Instagram-first for current work and quick enquiries.",
-            "A calm, polished look without the generic template feel.",
+            "Professional garden care with a calm, polished finish.",
+            "Recent work available on Instagram while the site gallery grows.",
           ].map((item) => (
             <div
               key={item}

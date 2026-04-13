@@ -30,7 +30,7 @@ const Footer = () => {
         </div>
         <div className="mt-8 pt-8 border-t border-primary-foreground/10 text-center">
           <p className="text-primary-foreground/40 text-sm">
-            © {new Date().getFullYear()} Bear Necessities Gardens. Instagram-first for current work and enquiries.
+            © {new Date().getFullYear()} Bear Necessities Gardens. Professional garden care with a thoughtful local touch.
           </p>
         </div>
       </div>

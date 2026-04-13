@@ -1,4 +1,4 @@
-import { Leaf, TreePine, Flower2, Shovel, Fence, Droplets } from "lucide-react";
+import { Leaf, TreePine, Flower2, Shovel, Mountain, Droplets } from "lucide-react";
 import gardenPatio from "@/assets/garden-patio.jpg";
 import gardenPlanting from "@/assets/garden-planting.jpg";
 import gardenMaintenance from "@/assets/garden-maintenance.jpg";
@@ -8,7 +8,7 @@ const services = [
   { icon: Shovel, title: "Tidy-ups and clear-outs", description: "A practical reset for overgrown or neglected spaces, with the goal of making everything feel manageable again." },
   { icon: Flower2, title: "Seasonal planting", description: "Fresh planting and subtle updates that bring colour, texture, and renewed life into the garden." },
   { icon: Leaf, title: "Pruning and shaping", description: "Thoughtful cutting back and maintenance that keeps gardens looking cared for without feeling overdone." },
-  { icon: Fence, title: "Outdoor refreshes", description: "Ideal for patios, pathways, and corners that need a visual lift and a more polished overall look." },
+  { icon: Mountain, title: "Landscaping", description: "Planting, shaping, and practical improvements that give the whole garden a stronger, more cohesive feel." },
   { icon: TreePine, title: "Tailored garden help", description: "Flexible support for the bear essentials of your garden, depending on what the space needs most." },
 ];
 

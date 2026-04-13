@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
 
+// Each image can be a local import or a direct image URL.
 const galleryItems = [
   {
     image: gardenPatio,
@@ -45,9 +46,9 @@ const GallerySection = () => {
               A polished gallery, ready for your real garden photos.
             </h2>
             <p className="mt-4 text-base leading-8 text-muted-foreground">
-              The carousel is already wired for local project images, so later
-              on you can swap in exported photos and keep the same elegant
-              layout without rebuilding the page.
+              The carousel is already wired for real project images. Each slide
+              can use a local asset import or a direct image URL, which makes
+              it easy to replace placeholders once photography is organised.
             </p>
           </div>
           <Button asChild variant="outline" size="lg">
@@ -57,7 +58,7 @@ const GallerySection = () => {
               rel="noopener noreferrer"
             >
               <Instagram className="h-4 w-4" />
-              See latest on Instagram
+              See recent work
             </a>
           </Button>
         </div>
@@ -96,9 +97,10 @@ const GallerySection = () => {
                           </p>
                         </div>
                         <p className="mt-8 text-sm leading-7 text-muted-foreground">
-                          Later, replace these local images with project photos
-                          in `src/assets/` or move them into `public/images/`
-                          if you want file-based gallery management.
+                          For production use, point each slide at a direct image
+                          file or local asset. Instagram post URLs themselves
+                          are not reliable image sources, but exported images or
+                          hosted image files work well.
                         </p>
                       </div>
                     </div>
