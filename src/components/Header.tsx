@@ -1,22 +1,32 @@
 import { useState } from "react";
 import { Instagram, Menu, X } from "lucide-react";
 import TransparentLogo from "@/components/TransparentLogo";
-import logo from "@/assets/logo.png";
-import { business, navigation } from "@/data/siteContent";
+import { business, navigation, logoShowcaseModes, type LogoShowcaseMode } from "@/data/siteContent";
 
-const Header = () => {
+type HeaderProps = {
+  activeMode?: LogoShowcaseMode["id"];
+};
+
+const Header = ({ activeMode = logoShowcaseModes[0].id }: HeaderProps) => {
   const [open, setOpen] = useState(false);
+  const selectedLogo =
+    logoShowcaseModes.find((mode) => mode.id === activeMode) ?? logoShowcaseModes[0];
 
   return (
     <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-background/84 backdrop-blur-md">
       <div className="container flex h-16 items-center justify-between md:h-20">
         <a href="#home" className="group flex items-center gap-3">
-          <span className="flex h-11 w-11 items-center justify-center rounded-md border border-white/10 bg-white/5 shadow-[0_18px_40px_-28px_rgba(0,0,0,0.6)] transition-transform duration-300 group-hover:-translate-y-0.5">
-            <TransparentLogo src={logo} alt={business.name} className="h-8 w-8" />
+          <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-md border border-white/10 bg-white/5 p-1.5 shadow-[0_18px_40px_-28px_rgba(0,0,0,0.6)] transition-transform duration-300 group-hover:-translate-y-0.5">
+            <TransparentLogo src={selectedLogo.image} alt={selectedLogo.name} className="h-full w-full object-contain" />
           </span>
-          <span className="font-heading text-lg font-semibold text-foreground md:text-xl">
-            Bear Necessities <span className="text-accent">Gardens</span>
-          </span>
+          <div>
+            <span className="font-heading text-lg font-semibold text-foreground md:text-xl">
+              Bear Necessities <span className="text-accent">Gardens</span>
+            </span>
+            <p className="hidden text-[11px] uppercase tracking-[0.18em] text-muted-foreground md:block">
+              {selectedLogo.name}
+            </p>
+          </div>
         </a>
 
         <nav className="hidden items-center gap-8 md:flex">

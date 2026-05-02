@@ -1,12 +1,10 @@
 import TransparentLogo from "@/components/TransparentLogo";
-import { logoShowcaseModes } from "@/data/siteContent";
+import { logoShowcaseModes, type LogoShowcaseMode } from "@/data/siteContent";
 import { cn } from "@/lib/utils";
 
-type StyleMode = (typeof logoShowcaseModes)[number]["id"];
-
 type StyleSwitcherProps = {
-  activeMode: StyleMode;
-  onChange: (mode: StyleMode) => void;
+  activeMode: LogoShowcaseMode["id"];
+  onChange: (mode: LogoShowcaseMode["id"]) => void;
 };
 
 const StyleSwitcher = ({ activeMode, onChange }: StyleSwitcherProps) => {
@@ -22,14 +20,14 @@ const StyleSwitcher = ({ activeMode, onChange }: StyleSwitcherProps) => {
               Compare logo directions live.
             </h2>
             <p className="mt-3 max-w-xl text-sm leading-7 text-muted-foreground">
-              The burgundy version is meant to feel visually richer and more
-              brand-led. These options help the owner react to different logo
-              emphases without needing separate mockups.
+              These are the real logo candidates, shown directly inside the
+              live site. This makes it easier to react to each option in
+              context rather than judging them as isolated image files.
             </p>
           </div>
         </div>
 
-        <div className="grid gap-4 lg:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {logoShowcaseModes.map((mode) => {
             const isActive = mode.id === activeMode;
             return (
@@ -45,22 +43,11 @@ const StyleSwitcher = ({ activeMode, onChange }: StyleSwitcherProps) => {
                 )}
               >
                 <div className="flex h-40 items-center justify-center bg-white/[0.04] px-4 py-5">
-                  {mode.type === "image" ? (
-                    <TransparentLogo
-                      src={mode.image}
-                      alt={mode.name}
-                      className="max-h-full w-auto max-w-full"
-                    />
-                  ) : (
-                    <div className="text-center">
-                      <p className="font-display text-5xl leading-none text-foreground">
-                        BEAR
-                      </p>
-                      <p className="mt-2 font-heading text-sm uppercase tracking-[0.34em] text-accent">
-                        Necessities Gardens
-                      </p>
-                    </div>
-                  )}
+                  <TransparentLogo
+                    src={mode.image}
+                    alt={mode.name}
+                    className="max-h-full w-auto max-w-full"
+                  />
                 </div>
                 <div className="border-t border-white/10 p-5">
                   <div className="flex items-center justify-between gap-4">

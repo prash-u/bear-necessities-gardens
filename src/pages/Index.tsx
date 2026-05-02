@@ -16,7 +16,9 @@ import Footer from "@/components/Footer";
 import { logoShowcaseModes, structuredData } from "@/data/siteContent";
 
 const Index = () => {
-  const [activeMode, setActiveMode] = useState<(typeof logoShowcaseModes)[number]["id"]>("full");
+  const [activeMode, setActiveMode] = useState<(typeof logoShowcaseModes)[number]["id"]>(
+    "lockup-bear",
+  );
 
   return (
     <div className="min-h-screen">
@@ -24,7 +26,7 @@ const Index = () => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <Header />
+      <Header activeMode={activeMode} />
       <StyleSwitcher activeMode={activeMode} onChange={setActiveMode} />
       <HeroSection activeMode={activeMode} />
       <AboutSection />
@@ -37,7 +39,7 @@ const Index = () => {
       <FaqSection />
       <CTASection />
       <ContactSection />
-      <Footer />
+      <Footer activeMode={activeMode} />
     </div>
   );
 };

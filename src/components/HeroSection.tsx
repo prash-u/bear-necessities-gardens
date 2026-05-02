@@ -2,12 +2,10 @@ import { ArrowRight, Instagram, Mail } from "lucide-react";
 import heroImage from "@/assets/hero-garden.jpg";
 import TransparentLogo from "@/components/TransparentLogo";
 import { Button } from "@/components/ui/button";
-import { business, logoShowcaseModes, showcaseNotes } from "@/data/siteContent";
-
-type StyleMode = (typeof logoShowcaseModes)[number]["id"];
+import { business, logoShowcaseModes, showcaseNotes, type LogoShowcaseMode } from "@/data/siteContent";
 
 type HeroSectionProps = {
-  activeMode: StyleMode;
+  activeMode: LogoShowcaseMode["id"];
 };
 
 const HeroSection = ({ activeMode }: HeroSectionProps) => {
@@ -31,30 +29,19 @@ const HeroSection = ({ activeMode }: HeroSectionProps) => {
       <div className="container relative z-10 px-4 pb-16 pt-28 md:pb-24 md:pt-36">
         <div className="mx-auto max-w-5xl text-center">
           <p className="animate-fade-in-up mb-4 text-sm uppercase tracking-[0.28em] text-accent md:text-base">
-            Visually richer burgundy direction
+            Logo concept preview
           </p>
 
-          {mode.type === "image" ? (
-            <div
-              className="animate-fade-in-up mx-auto flex max-w-3xl items-center justify-center rounded-md border border-white/10 bg-white/5 px-6 py-5 shadow-[0_30px_90px_-48px_rgba(0,0,0,0.8)] backdrop-blur-sm"
-              style={{ animationDelay: "0.15s" }}
-            >
-              <TransparentLogo
-                src={mode.image}
-                alt={mode.name}
-                className="h-auto w-full max-w-3xl"
-              />
-            </div>
-          ) : (
-            <div className="animate-fade-in-up" style={{ animationDelay: "0.15s" }}>
-              <h1 className="font-display text-6xl text-foreground sm:text-7xl md:text-8xl">
-                BEAR
-              </h1>
-              <p className="mt-3 font-heading text-base uppercase tracking-[0.45em] text-accent md:text-xl">
-                Necessities Gardens
-              </p>
-            </div>
-          )}
+          <div
+            className="animate-fade-in-up mx-auto flex max-w-3xl items-center justify-center rounded-md border border-white/10 bg-white/5 px-6 py-5 shadow-[0_30px_90px_-48px_rgba(0,0,0,0.8)] backdrop-blur-sm"
+            style={{ animationDelay: "0.15s" }}
+          >
+            <TransparentLogo
+              src={mode.image}
+              alt={mode.name}
+              className="h-auto w-full max-w-3xl"
+            />
+          </div>
 
           <h2
             className="animate-fade-in-up mx-auto mt-10 max-w-4xl text-balance font-display text-4xl text-foreground sm:text-5xl md:text-6xl"
@@ -72,7 +59,7 @@ const HeroSection = ({ activeMode }: HeroSectionProps) => {
             className="animate-fade-in-up mx-auto mt-4 max-w-2xl text-base leading-8 text-primary-foreground/65"
             style={{ animationDelay: "0.48s" }}
           >
-            {business.tagline}
+            Viewing concept: <span className="font-semibold text-primary-foreground">{mode.name}</span>. {business.tagline}
           </p>
           <div
             className="animate-fade-in-up mt-8 flex flex-col justify-center gap-4 sm:flex-row"

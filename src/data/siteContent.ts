@@ -17,8 +17,14 @@ import beforeAfter from "@/assets/before-after.jpg";
 import gardenFeature from "@/assets/garden-feature.jpg";
 import gardenLawn from "@/assets/garden-lawn.jpg";
 import gardenerAtWork from "@/assets/gardener-at-work.jpg";
-import logoFull from "@/assets/logo.png";
-import logoMark from "@/assets/logo-mark.svg";
+import option1FullWordmark from "@/assets/brand-options/option-1-full-wordmark.jpeg";
+import option2LockupBear from "@/assets/brand-options/option-2-lockup-bear.jpeg";
+import option3BearFace from "@/assets/brand-options/option-3-bear-face.jpeg";
+import option4BebearStacked from "@/assets/brand-options/option-4-bebear-stacked.jpeg";
+import option5BebearSplitA from "@/assets/brand-options/option-5-bebear-split-a.jpeg";
+import option6BebearSplitB from "@/assets/brand-options/option-6-bebear-split-b.jpeg";
+import option7BearShieldA from "@/assets/brand-options/option-7-bear-shield-a.jpeg";
+import option8BearShieldB from "@/assets/brand-options/option-8-bear-shield-b.jpeg";
 
 export const business = {
   name: "Bear Necessities Gardens",
@@ -256,32 +262,85 @@ export const structuredData = {
 
 export const logoShowcaseModes = [
   {
-    id: "full",
-    name: "Full Logo",
-    summary: "Best for bold recognition and a more finished badge feel.",
+    id: "lockup-bear",
+    name: "Lockup Bear",
+    summary: "The strongest all-rounder for the website, signage, and social headers.",
     type: "image" as const,
-    image: logoFull,
+    image: option2LockupBear,
     heroTitle: "Bear Necessities Gardens",
     heroCopy:
-      "A dramatic full-logo treatment that feels stronger, more memorable, and more like a serious local brand.",
+      "A complete lockup with the bear face baked into the main mark, giving the brand a clear hero logo without losing personality.",
   },
   {
-    id: "mark",
-    name: "Bear Mark",
-    summary: "Cleaner and more modern with the icon leading the identity.",
+    id: "full-wordmark",
+    name: "Full Wordmark",
+    summary: "Bold and direct, with the name doing the heavy lifting at a glance.",
     type: "image" as const,
-    image: logoMark,
-    heroTitle: "Gardens, The Bear Way",
+    image: option1FullWordmark,
+    heroTitle: "Built around the full name.",
     heroCopy:
-      "An icon-led direction that feels more modern, scalable, and immediately ownable across web, socials, and signage.",
+      "This direction leans into immediate recognition, with the full business name front and centre in one high-impact graphic.",
   },
   {
-    id: "wordmark",
-    name: "Wordmark",
-    summary: "Text-first for a graphic, signage-inspired presentation route.",
-    type: "text" as const,
-    heroTitle: "BEAR NECESSITIES GARDENS",
+    id: "bear-face",
+    name: "Bear Face",
+    summary: "A memorable icon-first route that could shine as the main social and favicon asset.",
+    type: "image" as const,
+    image: option3BearFace,
+    heroTitle: "Icon-led and instantly memorable.",
     heroCopy:
-      "A more typographic direction that makes the business feel confident, design-led, and highly brandable.",
+      "The face mark feels punchy, modern, and highly ownable, especially when paired with cleaner supporting typography around it.",
+  },
+  {
+    id: "bebear-stacked",
+    name: "BeBear Stacked",
+    summary: "A more experimental stacked concept with a playful poster-like energy.",
+    type: "image" as const,
+    image: option4BebearStacked,
+    heroTitle: "Graphic, playful, and harder-edged.",
+    heroCopy:
+      "This concept pushes the character of the brand further, with a stacked composition that feels distinctive and merch-friendly.",
+  },
+  {
+    id: "bebear-split-a",
+    name: "Split Concept A",
+    summary: "A split composition that gives the wordmark and bear shield equal weight.",
+    type: "image" as const,
+    image: option5BebearSplitA,
+    heroTitle: "A split layout with more contrast.",
+    heroCopy:
+      "This route breaks the identity into separate shapes, which could work well when the owner wants a more graphic, layout-driven feel.",
+  },
+  {
+    id: "bebear-split-b",
+    name: "Split Concept B",
+    summary: "A cleaner variation of the split idea with slightly stronger balance.",
+    type: "image" as const,
+    image: option6BebearSplitB,
+    heroTitle: "More balanced, still bold.",
+    heroCopy:
+      "A stronger refinement of the split composition that keeps the graphic energy while feeling a little more resolved.",
+  },
+  {
+    id: "bear-shield-a",
+    name: "Bear Shield A",
+    summary: "A compact shield icon that feels like a scalable sub-brand or badge.",
+    type: "image" as const,
+    image: option7BearShieldA,
+    heroTitle: "Compact, ownable, and highly scalable.",
+    heroCopy:
+      "This version works especially well as a standalone icon system, giving the brand a strong compact mark for socials, watermarks, and kit.",
+  },
+  {
+    id: "bear-shield-b",
+    name: "Bear Shield B",
+    summary: "A sharper shield variation with a stronger face cut and more aggressive geometry.",
+    type: "image" as const,
+    image: option8BearShieldB,
+    heroTitle: "The sharpest symbol-first option.",
+    heroCopy:
+      "This concept is the most aggressive and badge-like of the icon routes, making it a strong candidate for compact branding moments.",
   },
 ] as const;
+
+export type LogoShowcaseMode = (typeof logoShowcaseModes)[number];

@@ -1,19 +1,35 @@
 import { Instagram, Mail } from "lucide-react";
-import logoMark from "@/assets/logo-mark.svg";
-import { business } from "@/data/siteContent";
+import TransparentLogo from "@/components/TransparentLogo";
+import { business, logoShowcaseModes, type LogoShowcaseMode } from "@/data/siteContent";
 
-const Footer = () => {
+type FooterProps = {
+  activeMode?: LogoShowcaseMode["id"];
+};
+
+const Footer = ({ activeMode = logoShowcaseModes[0].id }: FooterProps) => {
+  const selectedLogo =
+    logoShowcaseModes.find((mode) => mode.id === activeMode) ?? logoShowcaseModes[0];
+
   return (
     <footer className="bg-foreground py-12">
       <div className="container px-4">
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           <div className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-2xl border border-primary-foreground/10 bg-primary-foreground/5">
-              <img src={logoMark} alt={business.name} className="h-6 w-6" />
+            <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-2xl border border-primary-foreground/10 bg-primary-foreground/5 p-1">
+              <TransparentLogo
+                src={selectedLogo.image}
+                alt={selectedLogo.name}
+                className="h-full w-full object-contain"
+              />
             </span>
-            <span className="font-heading text-lg font-semibold text-primary-foreground">
-              {business.name}
-            </span>
+            <div>
+              <span className="font-heading text-lg font-semibold text-primary-foreground">
+                {business.name}
+              </span>
+              <p className="text-[11px] uppercase tracking-[0.18em] text-primary-foreground/50">
+                {selectedLogo.name}
+              </p>
+            </div>
           </div>
           <div className="text-center md:text-right">
             <p className="text-sm text-primary-foreground/70">
