@@ -41,11 +41,11 @@ const ContactSection = () => {
             Contact
           </p>
           <h2 className="mb-4 text-3xl font-bold text-foreground md:text-5xl">
-            A professional first point of contact.
+            A simple, professional way to get in touch.
           </h2>
           <p className="mx-auto max-w-xl text-muted-foreground">
-            The website should stand on its own. Use the enquiry form or email
-            directly, and keep Instagram as supporting proof of recent work.
+            Share a few details about the garden and the kind of help you need,
+            and Bear Necessities Gardens can take it from there.
           </p>
         </div>
 
@@ -118,8 +118,9 @@ const ContactSection = () => {
               Tell Bear Necessities Gardens what your space needs.
             </h3>
             <p className="mt-4 text-base leading-8 text-primary-foreground/75">
-              This form opens an email draft with your details so enquiries stay
-              simple and direct without relying on a separate backend service.
+              Whether the job is a tidy-up, landscaping, planting, or regular
+              upkeep, a clear first message makes it easier to understand the
+              space and recommend the right next step.
             </p>
 
             <form onSubmit={handleSubmit} className="mt-8 space-y-4">
@@ -183,8 +184,8 @@ const ContactSection = () => {
 
             <div className="mt-10 rounded-[1.5rem] border border-primary-foreground/10 bg-primary-foreground/5 p-5">
               <p className="text-sm leading-7 text-primary-foreground/75">
-                Instagram can still support credibility and fresh updates, but
-                the main conversion path now lives on the site itself.
+                If it helps, recent jobs and seasonal updates can also be seen
+                on Instagram alongside direct email enquiries.
               </p>
             </div>
           </div>

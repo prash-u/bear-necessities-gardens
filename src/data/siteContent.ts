@@ -13,6 +13,10 @@ import {
 import gardenMaintenance from "@/assets/garden-maintenance.jpg";
 import gardenPatio from "@/assets/garden-patio.jpg";
 import gardenPlanting from "@/assets/garden-planting.jpg";
+import beforeAfter from "@/assets/before-after.jpg";
+import gardenFeature from "@/assets/garden-feature.jpg";
+import gardenLawn from "@/assets/garden-lawn.jpg";
+import gardenerAtWork from "@/assets/gardener-at-work.jpg";
 
 export const business = {
   name: "Bear Necessities Gardens",
@@ -133,21 +137,52 @@ export const processSteps = [
 export const galleryItems = [
   {
     image: gardenPatio,
+    category: "Patio and borders",
     title: "Outdoor spaces with a settled, welcoming feel",
     description:
       "Use this space for patios, seating areas, and garden corners that deserve a cleaner, more polished finish.",
   },
   {
     image: gardenPlanting,
+    category: "Planting",
     title: "Borders, planting, and seasonal texture",
     description:
-      "A ready-made slot for future photos from Google Drive exports once local project images are added to the repo.",
+      "Seasonal colour, balanced structure, and planting that feels intentional rather than overfilled.",
   },
   {
     image: gardenMaintenance,
+    category: "Maintenance",
     title: "From overgrown to un-bear-lievably good",
     description:
       "Ideal for before-and-after shots, regular maintenance highlights, or tidy-up work worth showing off.",
+  },
+  {
+    image: beforeAfter,
+    category: "Transformation",
+    title: "Before-and-after style proof",
+    description:
+      "Stronger contrast between starting point and result helps the business feel more credible immediately.",
+  },
+  {
+    image: gardenFeature,
+    category: "Feature garden",
+    title: "Characterful details and stronger composition",
+    description:
+      "A useful fit for more designed corners, pathways, or gardens with a softer cottage feel.",
+  },
+  {
+    image: gardenLawn,
+    category: "Lawn and finish",
+    title: "Clean lines and a more finished overall look",
+    description:
+      "Helpful for showing maintenance quality, edging, and the calmer feel of a properly looked-after space.",
+  },
+  {
+    image: gardenerAtWork,
+    category: "Process",
+    title: "Professional care in progress",
+    description:
+      "Adding one or two human-in-action images can make the business feel more real, local, and trustworthy.",
   },
 ];
 
@@ -173,29 +208,29 @@ export const faqItems = [
   {
     question: "What kind of gardens is this best suited to?",
     answer:
-      "The site is positioned for homes and outdoor spaces that need maintenance, a tidy-up, planting, landscaping, or a more polished overall feel. It is intentionally broad enough to grow with the business.",
+      "Homes and outdoor spaces that need maintenance, a tidy-up, planting, landscaping, or a more polished overall feel. Work can be tailored to anything from a quick refresh to ongoing care.",
   },
   {
     question: "Can the gallery be updated with real project images later?",
     answer:
-      "Yes. The gallery is already structured so local files or direct image URLs can be swapped in as new project photography becomes available.",
+      "Yes. As more project photography becomes available, the gallery can be expanded to show a wider mix of finished spaces, seasonal work, and before-and-after results.",
   },
   {
     question: "Does the enquiry form need extra software?",
     answer:
-      "No. Right now it uses a mailto flow so enquiries can work without a backend. It can later be upgraded to a proper hosted form if needed.",
+      "No. Enquiries can be sent directly by email, keeping the process simple and easy to use.",
   },
   {
     question: "Can Instagram still be part of the site?",
     answer:
-      "Absolutely. Instagram works best here as supporting proof of current work rather than the main conversion path, which keeps the website more professional and self-contained.",
+      "Absolutely. Instagram is a useful way to browse recent work and garden updates alongside the main website.",
   },
 ];
 
 export const showcaseNotes = [
-  "A calmer, more editorial presentation style",
-  "Clear enquiry path on the site itself",
-  "Space for future project images and case studies",
+  "From overgrown to un-bear-lievably good",
+  "Thoughtful landscaping, tidy-ups, and regular care",
+  "Recent work, real results, and a polished first impression",
 ];
 
 export const featuredCaseStudy = {
@@ -204,7 +239,7 @@ export const featuredCaseStudy = {
   category: "Garden maintenance",
   title: "A cleaner, calmer, more looked-after outdoor space.",
   description:
-    "This layout works well for future before-and-after projects too. Swap in stronger photography, add a short project summary, and the section quickly becomes a serious trust signal.",
+    "The strongest garden transformations are often the ones that feel simplest afterwards: cleaner lines, tidier borders, and a space that feels easier to enjoy day to day.",
 };
 
 export const structuredData = {

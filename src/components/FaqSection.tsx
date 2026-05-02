@@ -19,9 +19,8 @@ const FaqSection = () => {
               The sort of practical questions clients tend to ask.
             </h2>
             <p className="mt-4 text-base leading-8 text-muted-foreground">
-              This gives the page a more complete business feel and answers the
-              obvious next questions without sending people away to message for
-              every detail.
+              A few quick answers can make it easier to decide whether the
+              timing, scope, and style of work feel like the right fit.
             </p>
           </div>
 

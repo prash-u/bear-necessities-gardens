@@ -1,9 +1,10 @@
-import logo from "@/assets/logo.png";
+import logoMark from "@/assets/logo-mark.svg";
 import { aboutStats } from "@/data/siteContent";
 
 const AboutSection = () => {
   return (
-    <section id="about" className="bg-background py-20 md:py-28">
+    <section id="about" className="relative overflow-hidden bg-background py-20 md:py-28">
+      <div className="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top_left,hsla(142,44%,45%,0.12),transparent_58%)]" />
       <div className="container px-4">
         <div className="grid items-center gap-12 md:grid-cols-2">
           <div>
@@ -40,15 +41,15 @@ const AboutSection = () => {
 
           <div className="flex justify-center">
             <div className="relative">
-              <div className="flex h-64 w-64 items-center justify-center rounded-full bg-accent/50 shadow-[0_24px_80px_-48px_rgba(40,67,52,0.45)] animate-gentle-float md:h-80 md:w-80">
+              <div className="flex h-64 w-64 items-center justify-center rounded-[2rem] border border-border/60 bg-[linear-gradient(180deg,hsla(42,70%,97%,0.95),hsla(140,24%,92%,0.98))] shadow-[0_32px_120px_-56px_rgba(40,67,52,0.5)] animate-gentle-float md:h-80 md:w-80">
                 <img
-                  src={logo}
+                  src={logoMark}
                   alt="Bear Necessities Gardens logo"
-                  className="h-40 w-40 md:h-52 md:w-52"
+                  className="h-32 w-32 md:h-44 md:w-44"
                 />
               </div>
-              <div className="absolute -bottom-4 -right-4 h-24 w-24 rounded-full bg-primary opacity-20" />
-              <div className="absolute -left-4 -top-4 h-16 w-16 rounded-full bg-secondary opacity-40" />
+              <div className="absolute -bottom-4 -right-4 h-24 w-24 rounded-full bg-primary/15 blur-xl" />
+              <div className="absolute -left-4 -top-4 h-16 w-16 rounded-full bg-secondary/60 blur-md" />
             </div>
           </div>
         </div>

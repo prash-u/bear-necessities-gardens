@@ -1,5 +1,5 @@
 import { Instagram, Mail } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logoMark from "@/assets/logo-mark.svg";
 import { business } from "@/data/siteContent";
 
 const Footer = () => {
@@ -7,8 +7,10 @@ const Footer = () => {
     <footer className="bg-foreground py-12">
       <div className="container px-4">
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
-          <div className="flex items-center gap-2">
-            <img src={logo} alt={business.name} className="h-8 w-8" />
+          <div className="flex items-center gap-3">
+            <span className="flex h-10 w-10 items-center justify-center rounded-2xl border border-primary-foreground/10 bg-primary-foreground/5">
+              <img src={logoMark} alt={business.name} className="h-6 w-6" />
+            </span>
             <span className="font-heading text-lg font-semibold text-primary-foreground">
               {business.name}
             </span>

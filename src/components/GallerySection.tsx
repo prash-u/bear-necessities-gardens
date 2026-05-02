@@ -19,12 +19,12 @@ const GallerySection = () => {
               Gallery
             </p>
             <h2 className="text-balance text-3xl font-bold text-foreground md:text-5xl">
-              A polished gallery, ready for your real garden photos.
+              Recent work that makes the quality of care feel immediate.
             </h2>
             <p className="mt-4 text-base leading-8 text-muted-foreground">
-              The carousel is already wired for real project images. Each slide
-              can use a local asset import or a direct image URL, which makes
-              it easy to replace placeholders once photography is organised.
+              A mix of finished spaces, planting, maintenance, and work in
+              progress gives a clearer sense of the standard, style, and care
+              behind each garden.
             </p>
           </div>
           <Button asChild variant="outline" size="lg">
@@ -57,7 +57,7 @@ const GallerySection = () => {
                       <div className="flex flex-col justify-between bg-secondary/35 p-8 md:p-10">
                         <div>
                           <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
-                            Placeholder gallery slide
+                            {item.category}
                           </p>
                           <h3 className="mt-4 text-2xl font-semibold text-foreground md:text-3xl">
                             {item.title}
@@ -67,10 +67,9 @@ const GallerySection = () => {
                           </p>
                         </div>
                         <p className="mt-8 text-sm leading-7 text-muted-foreground">
-                          For production use, point each slide at a direct image
-                          file or local asset. Instagram post URLs themselves
-                          are not reliable image sources, but exported images or
-                          hosted image files work well.
+                          A stronger mix of before-and-after images, tidy
+                          finishes, and in-progress working shots gives the site
+                          a much more trustworthy, local, and professional feel.
                         </p>
                       </div>
                     </div>

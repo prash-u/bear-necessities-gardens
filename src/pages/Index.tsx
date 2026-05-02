@@ -5,9 +5,11 @@ import ServicesSection from "@/components/ServicesSection";
 import ProjectTypesSection from "@/components/ProjectTypesSection";
 import ProcessSection from "@/components/ProcessSection";
 import GallerySection from "@/components/GallerySection";
+import BeforeAfterSection from "@/components/BeforeAfterSection";
 import ProofSection from "@/components/ProofSection";
 import FaqSection from "@/components/FaqSection";
 import ContactSection from "@/components/ContactSection";
+import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import { structuredData } from "@/data/siteContent";
 
@@ -25,8 +27,10 @@ const Index = () => {
       <ProjectTypesSection />
       <ProcessSection />
       <GallerySection />
+      <BeforeAfterSection />
       <ProofSection />
       <FaqSection />
+      <CTASection />
       <ContactSection />
       <Footer />
     </div>

@@ -15,12 +15,12 @@ const ProofSection = () => {
             Recent Work and Kind Words
           </p>
           <h2 className="text-balance text-3xl font-bold text-foreground md:text-5xl">
-            Early proof, presented with a more professional finish.
+            Care, quality, and attention people notice.
           </h2>
           <p className="mt-4 text-base leading-8 text-muted-foreground">
-            Instead of a generic testimonial carousel, this section combines a
-            featured piece of work with a few concise client reactions. It
-            feels more credible, more editorial, and easier to trust.
+            A strong finish is about more than cutting back or clearing up. It
+            is the difference between a garden feeling merely done and feeling
+            genuinely looked after.
           </p>
         </div>
 
