@@ -1,9 +1,18 @@
 import { ArrowRight, Instagram, Mail } from "lucide-react";
 import heroImage from "@/assets/hero-garden.jpg";
+import TransparentLogo from "@/components/TransparentLogo";
 import { Button } from "@/components/ui/button";
-import { business, showcaseNotes } from "@/data/siteContent";
+import { business, logoShowcaseModes, showcaseNotes } from "@/data/siteContent";
 
-const HeroSection = () => {
+type StyleMode = (typeof logoShowcaseModes)[number]["id"];
+
+type HeroSectionProps = {
+  activeMode: StyleMode;
+};
+
+const HeroSection = ({ activeMode }: HeroSectionProps) => {
+  const mode = logoShowcaseModes.find((item) => item.id === activeMode) ?? logoShowcaseModes[0];
+
   return (
     <section
       id="home"
@@ -16,35 +25,54 @@ const HeroSection = () => {
         width={1920}
         height={1080}
       />
-      <div
-        className="absolute inset-0"
-        style={{ background: "var(--hero-overlay)" }}
-      />
+      <div className="absolute inset-0" style={{ background: "var(--hero-overlay)" }} />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(215,25,32,0.18),transparent_28%)]" />
 
       <div className="container relative z-10 px-4 pb-16 pt-28 md:pb-24 md:pt-36">
-        <div className="mx-auto max-w-4xl text-center">
-          <p className="animate-fade-in-up mb-4 text-sm uppercase tracking-[0.28em] text-primary-foreground/80 md:text-base">
-            Gardens, the Bear Way
+        <div className="mx-auto max-w-5xl text-center">
+          <p className="animate-fade-in-up mb-4 text-sm uppercase tracking-[0.28em] text-accent md:text-base">
+            Visually richer burgundy direction
           </p>
-          <h1
-            className="animate-fade-in-up text-balance text-4xl font-bold text-primary-foreground sm:text-5xl md:text-7xl"
-            style={{ animationDelay: "0.15s" }}
-          >
-            {business.name}
-          </h1>
-          <p
-            className="animate-fade-in-up mx-auto mt-6 max-w-2xl text-balance text-lg text-primary-foreground/90 md:text-2xl"
+
+          {mode.type === "image" ? (
+            <div
+              className="animate-fade-in-up mx-auto flex max-w-3xl items-center justify-center rounded-md border border-white/10 bg-white/5 px-6 py-5 shadow-[0_30px_90px_-48px_rgba(0,0,0,0.8)] backdrop-blur-sm"
+              style={{ animationDelay: "0.15s" }}
+            >
+              <TransparentLogo
+                src={mode.image}
+                alt={mode.name}
+                className="h-auto w-full max-w-3xl"
+              />
+            </div>
+          ) : (
+            <div className="animate-fade-in-up" style={{ animationDelay: "0.15s" }}>
+              <h1 className="font-display text-6xl text-foreground sm:text-7xl md:text-8xl">
+                BEAR
+              </h1>
+              <p className="mt-3 font-heading text-base uppercase tracking-[0.45em] text-accent md:text-xl">
+                Necessities Gardens
+              </p>
+            </div>
+          )}
+
+          <h2
+            className="animate-fade-in-up mx-auto mt-10 max-w-4xl text-balance font-display text-4xl text-foreground sm:text-5xl md:text-6xl"
             style={{ animationDelay: "0.3s" }}
           >
-            {business.tagline}
-          </p>
+            {mode.heroTitle}
+          </h2>
           <p
             className="animate-fade-in-up mx-auto mt-5 max-w-2xl text-base leading-8 text-primary-foreground/75 md:text-lg"
             style={{ animationDelay: "0.4s" }}
           >
-            Thoughtful garden maintenance, tidy-ups, landscaping, and seasonal
-            refreshes with a classy finish and just enough personality to stay
-            memorable.
+            {mode.heroCopy}
+          </p>
+          <p
+            className="animate-fade-in-up mx-auto mt-4 max-w-2xl text-base leading-8 text-primary-foreground/65"
+            style={{ animationDelay: "0.48s" }}
+          >
+            {business.tagline}
           </p>
           <div
             className="animate-fade-in-up mt-8 flex flex-col justify-center gap-4 sm:flex-row"
@@ -59,7 +87,7 @@ const HeroSection = () => {
             <Button
               variant="outline"
               size="lg"
-              className="border-primary-foreground/30 bg-primary-foreground/5 text-primary-foreground hover:bg-primary-foreground/10"
+              className="border-primary-foreground/20 bg-primary-foreground/5 text-primary-foreground hover:bg-primary-foreground/10"
               asChild
             >
               <a href="#services">
@@ -92,7 +120,7 @@ const HeroSection = () => {
           {showcaseNotes.map((item) => (
             <div
               key={item}
-              className="rounded-[1.5rem] border border-primary-foreground/15 bg-primary-foreground/8 p-5 text-left backdrop-blur-sm"
+              className="rounded-md border border-primary-foreground/12 bg-primary-foreground/6 p-5 text-left backdrop-blur-sm"
             >
               <p className="text-sm leading-7 text-primary-foreground/85">
                 {item}

@@ -1,5 +1,7 @@
+import { useState } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import StyleSwitcher from "@/components/StyleSwitcher";
 import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
 import ProjectTypesSection from "@/components/ProjectTypesSection";
@@ -11,9 +13,11 @@ import FaqSection from "@/components/FaqSection";
 import ContactSection from "@/components/ContactSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
-import { structuredData } from "@/data/siteContent";
+import { logoShowcaseModes, structuredData } from "@/data/siteContent";
 
 const Index = () => {
+  const [activeMode, setActiveMode] = useState<(typeof logoShowcaseModes)[number]["id"]>("full");
+
   return (
     <div className="min-h-screen">
       <script
@@ -21,7 +25,8 @@ const Index = () => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <Header />
-      <HeroSection />
+      <StyleSwitcher activeMode={activeMode} onChange={setActiveMode} />
+      <HeroSection activeMode={activeMode} />
       <AboutSection />
       <ServicesSection />
       <ProjectTypesSection />

@@ -17,6 +17,8 @@ import beforeAfter from "@/assets/before-after.jpg";
 import gardenFeature from "@/assets/garden-feature.jpg";
 import gardenLawn from "@/assets/garden-lawn.jpg";
 import gardenerAtWork from "@/assets/gardener-at-work.jpg";
+import logoFull from "@/assets/logo.png";
+import logoMark from "@/assets/logo-mark.svg";
 
 export const business = {
   name: "Bear Necessities Gardens",
@@ -251,3 +253,35 @@ export const structuredData = {
   email: business.email,
   sameAs: [business.instagram],
 };
+
+export const logoShowcaseModes = [
+  {
+    id: "full",
+    name: "Full Logo",
+    summary: "Best for bold recognition and a more finished badge feel.",
+    type: "image" as const,
+    image: logoFull,
+    heroTitle: "Bear Necessities Gardens",
+    heroCopy:
+      "A dramatic full-logo treatment that feels stronger, more memorable, and more like a serious local brand.",
+  },
+  {
+    id: "mark",
+    name: "Bear Mark",
+    summary: "Cleaner and more modern with the icon leading the identity.",
+    type: "image" as const,
+    image: logoMark,
+    heroTitle: "Gardens, The Bear Way",
+    heroCopy:
+      "An icon-led direction that feels more modern, scalable, and immediately ownable across web, socials, and signage.",
+  },
+  {
+    id: "wordmark",
+    name: "Wordmark",
+    summary: "Text-first for a graphic, signage-inspired presentation route.",
+    type: "text" as const,
+    heroTitle: "BEAR NECESSITIES GARDENS",
+    heroCopy:
+      "A more typographic direction that makes the business feel confident, design-led, and highly brandable.",
+  },
+] as const;
