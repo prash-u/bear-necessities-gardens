@@ -1,5 +1,6 @@
 import { ArrowRight, Instagram, Mail } from "lucide-react";
 import heroImage from "@/assets/hero-garden.jpg";
+import WatermarkedImage from "@/components/WatermarkedImage";
 import TransparentLogo from "@/components/TransparentLogo";
 import { Button } from "@/components/ui/button";
 import { business, logoShowcaseModes, showcaseNotes, type LogoShowcaseMode } from "@/data/siteContent";
@@ -16,10 +17,12 @@ const HeroSection = ({ activeMode }: HeroSectionProps) => {
       id="home"
       className="relative flex min-h-screen items-center justify-center overflow-hidden"
     >
-      <img
+      <WatermarkedImage
         src={heroImage}
         alt="A beautifully maintained garden in warm evening light"
         className="absolute inset-0 h-full w-full object-cover"
+        wrapperClassName="absolute inset-0"
+        loading="eager"
         width={1920}
         height={1080}
       />

@@ -1,5 +1,6 @@
 import { ArrowUpRight, Quote, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import WatermarkedImage from "@/components/WatermarkedImage";
 import {
   business,
   featuredCaseStudy,
@@ -26,7 +27,7 @@ const ProofSection = () => {
 
         <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
           <article className="overflow-hidden rounded-[2rem] border border-border bg-card shadow-[0_24px_80px_-48px_rgba(40,67,52,0.4)]">
-            <img
+            <WatermarkedImage
               src={featuredCaseStudy.image}
               alt="Featured garden maintenance example"
               className="aspect-[16/10] w-full object-cover"

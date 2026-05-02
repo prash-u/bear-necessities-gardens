@@ -1,6 +1,7 @@
 import beforeAfter from "@/assets/before-after.jpg";
 import gardenLawn from "@/assets/garden-lawn.jpg";
 import gardenFeature from "@/assets/garden-feature.jpg";
+import WatermarkedImage from "@/components/WatermarkedImage";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { CheckCircle } from "lucide-react";
 
@@ -29,7 +30,7 @@ const BeforeAfterSection = () => {
           >
             <div className="space-y-3">
               <div className="overflow-hidden rounded-[1.5rem]">
-                <img
+                <WatermarkedImage
                   src={beforeAfter}
                   alt="Garden transformation"
                   loading="lazy"
@@ -39,7 +40,7 @@ const BeforeAfterSection = () => {
                 />
               </div>
               <div className="overflow-hidden rounded-[1.5rem]">
-                <img
+                <WatermarkedImage
                   src={gardenFeature}
                   alt="Cottage garden with stone path"
                   loading="lazy"
@@ -51,7 +52,7 @@ const BeforeAfterSection = () => {
             </div>
             <div className="pt-8 space-y-3">
               <div className="overflow-hidden rounded-[1.5rem]">
-                <img
+                <WatermarkedImage
                   src={gardenLawn}
                   alt="Manicured lawn"
                   loading="lazy"

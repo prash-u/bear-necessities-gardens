@@ -1,6 +1,7 @@
 import { ArrowRight, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import beforeAfter from "@/assets/before-after.jpg";
+import WatermarkedImage from "@/components/WatermarkedImage";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const CTASection = () => {
@@ -14,10 +15,11 @@ const CTASection = () => {
             isVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"
           }`}
         >
-          <img
+          <WatermarkedImage
             src={beforeAfter}
             alt="Garden transformation before and after"
             className="absolute inset-0 h-full w-full object-cover"
+            wrapperClassName="absolute inset-0"
             loading="lazy"
             width={1280}
             height={800}

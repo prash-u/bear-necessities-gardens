@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ActiveLogoProvider } from "@/components/ActiveLogoProvider";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import StyleSwitcher from "@/components/StyleSwitcher";
@@ -21,26 +22,28 @@ const Index = () => {
   );
 
   return (
-    <div className="min-h-screen">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
-      <Header activeMode={activeMode} />
-      <StyleSwitcher activeMode={activeMode} onChange={setActiveMode} />
-      <HeroSection activeMode={activeMode} />
-      <AboutSection />
-      <ServicesSection />
-      <ProjectTypesSection />
-      <ProcessSection />
-      <GallerySection />
-      <BeforeAfterSection />
-      <ProofSection />
-      <FaqSection />
-      <CTASection />
-      <ContactSection />
-      <Footer activeMode={activeMode} />
-    </div>
+    <ActiveLogoProvider activeMode={activeMode}>
+      <div className="min-h-screen">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+        <Header activeMode={activeMode} />
+        <StyleSwitcher activeMode={activeMode} onChange={setActiveMode} />
+        <HeroSection activeMode={activeMode} />
+        <AboutSection />
+        <ServicesSection />
+        <ProjectTypesSection />
+        <ProcessSection />
+        <GallerySection />
+        <BeforeAfterSection />
+        <ProofSection />
+        <FaqSection />
+        <CTASection />
+        <ContactSection />
+        <Footer activeMode={activeMode} />
+      </div>
+    </ActiveLogoProvider>
   );
 };
 

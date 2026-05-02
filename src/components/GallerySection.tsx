@@ -7,6 +7,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
+import WatermarkedImage from "@/components/WatermarkedImage";
 import { business, galleryItems } from "@/data/siteContent";
 
 const GallerySection = () => {
@@ -47,7 +48,7 @@ const GallerySection = () => {
                   <div className="overflow-hidden rounded-[1.5rem]">
                     <div className="grid gap-0 lg:grid-cols-[1.15fr_0.85fr]">
                       <div className="overflow-hidden">
-                        <img
+                        <WatermarkedImage
                           src={item.image}
                           alt={item.title}
                           loading="lazy"

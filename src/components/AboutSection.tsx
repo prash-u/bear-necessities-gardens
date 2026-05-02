@@ -1,7 +1,10 @@
-import logoMark from "@/assets/logo-mark.svg";
+import TransparentLogo from "@/components/TransparentLogo";
+import { useActiveLogo } from "@/components/ActiveLogoProvider";
 import { aboutStats } from "@/data/siteContent";
 
 const AboutSection = () => {
+  const { selectedLogo } = useActiveLogo();
+
   return (
     <section id="about" className="relative overflow-hidden bg-background py-20 md:py-28">
       <div className="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top_left,hsla(142,44%,45%,0.12),transparent_58%)]" />
@@ -42,10 +45,10 @@ const AboutSection = () => {
           <div className="flex justify-center">
             <div className="relative">
               <div className="flex h-64 w-64 items-center justify-center rounded-[2rem] border border-border/60 bg-[linear-gradient(180deg,hsla(42,70%,97%,0.95),hsla(140,24%,92%,0.98))] shadow-[0_32px_120px_-56px_rgba(40,67,52,0.5)] animate-gentle-float md:h-80 md:w-80">
-                <img
-                  src={logoMark}
-                  alt="Bear Necessities Gardens logo"
-                  className="h-32 w-32 md:h-44 md:w-44"
+                <TransparentLogo
+                  src={selectedLogo.image}
+                  alt={`${selectedLogo.name} logo concept`}
+                  className="h-32 w-32 object-contain md:h-44 md:w-44"
                 />
               </div>
               <div className="absolute -bottom-4 -right-4 h-24 w-24 rounded-full bg-primary/15 blur-xl" />

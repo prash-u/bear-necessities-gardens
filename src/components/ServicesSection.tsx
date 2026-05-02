@@ -1,3 +1,4 @@
+import WatermarkedImage from "@/components/WatermarkedImage";
 import { servicePreviewImages, services } from "@/data/siteContent";
 
 const ServicesSection = () => {
@@ -47,7 +48,7 @@ const ServicesSection = () => {
               key={index}
               className="aspect-[4/3] overflow-hidden rounded-[1.5rem]"
             >
-              <img
+              <WatermarkedImage
                 src={image}
                 alt="Bear Necessities Gardens work preview"
                 loading="lazy"
