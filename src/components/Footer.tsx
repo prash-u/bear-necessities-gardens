@@ -18,6 +18,7 @@ const Footer = ({ activeMode = logoShowcaseModes[0].id }: FooterProps) => {
             <span className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-2xl border border-primary-foreground/10 bg-primary-foreground/5 p-1">
               <TransparentLogo
                 src={selectedLogo.image}
+                crop={"uiCrop" in selectedLogo ? selectedLogo.uiCrop : undefined}
                 alt={selectedLogo.name}
                 className="h-full w-full object-contain"
               />

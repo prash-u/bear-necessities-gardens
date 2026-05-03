@@ -43,11 +43,25 @@ const StyleSwitcher = ({ activeMode, onChange }: StyleSwitcherProps) => {
                 )}
               >
                 <div className="flex h-40 items-center justify-center bg-white/[0.04] px-4 py-5">
-                  <TransparentLogo
-                    src={mode.image}
-                    alt={mode.name}
-                    className="max-h-full w-auto max-w-full"
-                  />
+                  {"previewCrops" in mode ? (
+                    <div className="flex h-full w-full items-center justify-center gap-4">
+                      {mode.previewCrops.map((crop, index) => (
+                        <TransparentLogo
+                          key={`${mode.id}-${index}`}
+                          src={mode.image}
+                          crop={crop}
+                          alt={`${mode.name} variant ${index + 1}`}
+                          className="max-h-full w-auto max-w-[48%]"
+                        />
+                      ))}
+                    </div>
+                  ) : (
+                    <TransparentLogo
+                      src={mode.image}
+                      alt={mode.name}
+                      className="max-h-full w-auto max-w-full"
+                    />
+                  )}
                 </div>
                 <div className="border-t border-white/10 p-5">
                   <div className="flex items-center justify-between gap-4">

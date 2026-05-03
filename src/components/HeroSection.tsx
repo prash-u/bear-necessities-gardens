@@ -36,14 +36,32 @@ const HeroSection = ({ activeMode }: HeroSectionProps) => {
           </p>
 
           <div
-            className="animate-fade-in-up mx-auto flex max-w-3xl items-center justify-center rounded-md border border-white/10 bg-white/5 px-6 py-5 shadow-[0_30px_90px_-48px_rgba(0,0,0,0.8)] backdrop-blur-sm"
+            className="animate-fade-in-up relative mx-auto flex max-w-4xl items-center justify-center px-6 py-6"
             style={{ animationDelay: "0.15s" }}
           >
-            <TransparentLogo
-              src={mode.image}
-              alt={mode.name}
-              className="h-auto w-full max-w-3xl"
-            />
+            <div className="absolute inset-x-[10%] inset-y-[18%] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.18)_0%,rgba(255,255,255,0.08)_32%,rgba(255,255,255,0.02)_58%,transparent_78%)] blur-2xl" />
+            <div className="absolute inset-x-[18%] inset-y-[28%] rounded-full bg-[radial-gradient(circle,rgba(215,25,32,0.18)_0%,rgba(215,25,32,0.08)_35%,transparent_72%)] blur-3xl" />
+            <div className="relative z-10">
+              {"previewCrops" in mode ? (
+                <div className="flex w-full items-center justify-center gap-5">
+                  {mode.previewCrops.map((crop, index) => (
+                    <TransparentLogo
+                      key={`${mode.id}-${index}`}
+                      src={mode.image}
+                      crop={crop}
+                      alt={`${mode.name} variant ${index + 1}`}
+                      className="h-auto max-h-48 w-auto max-w-[48%] object-contain drop-shadow-[0_24px_40px_rgba(0,0,0,0.45)]"
+                    />
+                  ))}
+                </div>
+              ) : (
+                <TransparentLogo
+                  src={mode.image}
+                  alt={mode.name}
+                  className="h-auto w-full max-w-3xl drop-shadow-[0_24px_40px_rgba(0,0,0,0.45)]"
+                />
+              )}
+            </div>
           </div>
 
           <h2

@@ -47,6 +47,7 @@ const AboutSection = () => {
               <div className="flex h-64 w-64 items-center justify-center rounded-[2rem] border border-border/60 bg-[linear-gradient(180deg,hsla(42,70%,97%,0.95),hsla(140,24%,92%,0.98))] shadow-[0_32px_120px_-56px_rgba(40,67,52,0.5)] animate-gentle-float md:h-80 md:w-80">
                 <TransparentLogo
                   src={selectedLogo.image}
+                  crop={"uiCrop" in selectedLogo ? selectedLogo.uiCrop : undefined}
                   alt={`${selectedLogo.name} logo concept`}
                   className="h-32 w-32 object-contain md:h-44 md:w-44"
                 />

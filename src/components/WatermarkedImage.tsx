@@ -36,6 +36,7 @@ const WatermarkedImage = ({
       <div className="pointer-events-none absolute bottom-3 right-3 z-10 rounded-md border border-black/20 bg-white/95 p-1.5 shadow-[0_12px_30px_-18px_rgba(0,0,0,0.8)]">
         <TransparentLogo
           src={selectedLogo.image}
+          crop={"uiCrop" in selectedLogo ? selectedLogo.uiCrop : undefined}
           alt={`${selectedLogo.name} watermark`}
           className="h-10 w-auto max-w-[5rem] object-contain md:h-12 md:max-w-[6rem]"
         />

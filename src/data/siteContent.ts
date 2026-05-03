@@ -307,6 +307,11 @@ export const logoShowcaseModes = [
     summary: "A split composition that gives the wordmark and bear shield equal weight.",
     type: "image" as const,
     image: option5BebearSplitA,
+    uiCrop: { x: 320, y: 245, width: 760, height: 965 },
+    previewCrops: [
+      { x: 0, y: 0, width: 360, height: 1448 },
+      { x: 320, y: 245, width: 760, height: 965 },
+    ],
     heroTitle: "A split layout with more contrast.",
     heroCopy:
       "This route breaks the identity into separate shapes, which could work well when the owner wants a more graphic, layout-driven feel.",
@@ -317,6 +322,11 @@ export const logoShowcaseModes = [
     summary: "A cleaner variation of the split idea with slightly stronger balance.",
     type: "image" as const,
     image: option6BebearSplitB,
+    uiCrop: { x: 420, y: 185, width: 834, height: 1000 },
+    previewCrops: [
+      { x: 0, y: 0, width: 470, height: 1254 },
+      { x: 420, y: 185, width: 834, height: 1000 },
+    ],
     heroTitle: "More balanced, still bold.",
     heroCopy:
       "A stronger refinement of the split composition that keeps the graphic energy while feeling a little more resolved.",
