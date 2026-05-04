@@ -18,8 +18,7 @@ const Header = ({ activeMode = logoShowcaseModes[0].id }: HeaderProps) => {
         <a href="#home" className="group flex items-center gap-3">
           <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-md border border-white/8 bg-black/10 p-1.5 shadow-[0_18px_40px_-28px_rgba(0,0,0,0.6)] transition-transform duration-300 group-hover:-translate-y-0.5">
             <TransparentLogo
-              src={selectedLogo.image}
-              crop={"uiCrop" in selectedLogo ? selectedLogo.uiCrop : undefined}
+              src={"uiImage" in selectedLogo ? selectedLogo.uiImage : selectedLogo.image}
               alt={selectedLogo.name}
               className="h-full w-full object-contain"
             />

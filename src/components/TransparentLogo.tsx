@@ -26,6 +26,11 @@ const TransparentLogo = ({
   const [processedSrc, setProcessedSrc] = useState<string>(src);
 
   useEffect(() => {
+    if (src.toLowerCase().endsWith(".png") && !crop) {
+      setProcessedSrc(src);
+      return;
+    }
+
     let cancelled = false;
     const img = new Image();
 

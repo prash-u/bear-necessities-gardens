@@ -11,6 +11,7 @@ type HeroSectionProps = {
 
 const HeroSection = ({ activeMode }: HeroSectionProps) => {
   const mode = logoShowcaseModes.find((item) => item.id === activeMode) ?? logoShowcaseModes[0];
+  const previewImages = "previewImages" in mode ? mode.previewImages : [mode.image];
 
   return (
     <section
@@ -31,57 +32,54 @@ const HeroSection = ({ activeMode }: HeroSectionProps) => {
 
       <div className="container relative z-10 px-4 pb-16 pt-28 md:pb-24 md:pt-36">
         <div className="mx-auto max-w-5xl text-center">
-          <p className="animate-fade-in-up mb-4 text-sm uppercase tracking-[0.28em] text-accent md:text-base">
-            Logo concept preview
+          <p className="animate-fade-in-up mb-4 text-sm uppercase tracking-[0.24em] text-accent md:text-base">
+            Premium landscaping and garden care
           </p>
 
           <div
-            className="animate-fade-in-up relative mx-auto flex max-w-4xl items-center justify-center px-6 py-6"
+            className="animate-fade-in-up relative mx-auto mb-8 flex max-w-2xl items-center justify-center px-6 py-4"
             style={{ animationDelay: "0.15s" }}
           >
-            <div className="absolute inset-x-[10%] inset-y-[18%] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.18)_0%,rgba(255,255,255,0.08)_32%,rgba(255,255,255,0.02)_58%,transparent_78%)] blur-2xl" />
-            <div className="absolute inset-x-[18%] inset-y-[28%] rounded-full bg-[radial-gradient(circle,rgba(215,25,32,0.18)_0%,rgba(215,25,32,0.08)_35%,transparent_72%)] blur-3xl" />
+            <div className="absolute inset-x-[16%] inset-y-[24%] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.14)_0%,rgba(255,255,255,0.05)_40%,transparent_78%)] blur-2xl" />
             <div className="relative z-10">
-              {"previewCrops" in mode ? (
-              <div className="flex w-full items-center justify-center gap-5">
-                {mode.previewCrops.map((crop, index) => (
-                  <TransparentLogo
+              {previewImages.length > 1 ? (
+                <div className="flex w-full items-center justify-center gap-5">
+                  {previewImages.map((previewImage, index) => (
+                    <TransparentLogo
                       key={`${mode.id}-${index}`}
-                      src={mode.image}
-                      crop={crop}
+                      src={previewImage}
                       alt={`${mode.name} variant ${index + 1}`}
-                      className="h-auto max-h-48 w-auto max-w-[48%] object-contain drop-shadow-[0_24px_40px_rgba(0,0,0,0.45)]"
+                      className="h-auto max-h-36 w-auto max-w-[46%] object-contain drop-shadow-[0_18px_32px_rgba(0,0,0,0.28)] md:max-h-44"
                     />
                   ))}
                 </div>
               ) : (
-              <TransparentLogo
-                src={mode.image}
-                crop={"uiCrop" in mode ? mode.uiCrop : undefined}
-                alt={mode.name}
-                className="h-auto w-full max-w-3xl drop-shadow-[0_20px_36px_rgba(0,0,0,0.38)]"
-              />
-            )}
-          </div>
+                <TransparentLogo
+                  src={previewImages[0]}
+                  alt={mode.name}
+                  className="h-auto w-full max-w-xl object-contain drop-shadow-[0_18px_32px_rgba(0,0,0,0.24)] md:max-w-2xl"
+                />
+              )}
+            </div>
           </div>
 
           <h2
-            className="animate-fade-in-up mx-auto mt-10 max-w-4xl text-balance font-display text-4xl text-foreground sm:text-5xl md:text-6xl"
+            className="animate-fade-in-up mx-auto max-w-4xl text-balance font-display text-5xl leading-[0.95] text-foreground sm:text-6xl md:text-7xl"
             style={{ animationDelay: "0.3s" }}
           >
-            {mode.heroTitle}
+            Gardens that feel cared for, polished, and easy to enjoy.
           </h2>
           <p
-            className="animate-fade-in-up mx-auto mt-5 max-w-2xl text-base leading-8 text-primary-foreground/75 md:text-lg"
+            className="animate-fade-in-up mx-auto mt-6 max-w-3xl text-lg leading-9 text-primary-foreground/78 md:text-xl"
             style={{ animationDelay: "0.4s" }}
           >
-            {mode.heroCopy}
+            Bear Necessities Gardens offers thoughtful landscaping, tidy-ups, planting, and regular maintenance for outdoor spaces that deserve a stronger finish and a calmer overall feel.
           </p>
           <p
             className="animate-fade-in-up mx-auto mt-4 max-w-2xl text-base leading-8 text-primary-foreground/65"
             style={{ animationDelay: "0.48s" }}
           >
-            Selected identity: <span className="font-semibold text-primary-foreground">{mode.name}</span>. {business.tagline}
+            Current logo direction: <span className="font-semibold text-primary-foreground">{mode.name}</span>.
           </p>
           <div
             className="animate-fade-in-up mt-8 flex flex-col justify-center gap-4 sm:flex-row"

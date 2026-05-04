@@ -22,9 +22,7 @@ const WatermarkedImage = ({
   height,
 }: WatermarkedImageProps) => {
   const { selectedLogo } = useActiveLogo();
-  const watermarkCrop = "previewCrops" in selectedLogo
-    ? selectedLogo.previewCrops[selectedLogo.previewCrops.length - 1]
-    : undefined;
+  const watermarkSrc = "uiImage" in selectedLogo ? selectedLogo.uiImage : selectedLogo.image;
   const isWideMark =
     selectedLogo.id === "lockup-bear" || selectedLogo.id === "full-wordmark";
 
@@ -41,8 +39,7 @@ const WatermarkedImage = ({
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(0,0,0,0.52),transparent_28%)]" />
       <div className="pointer-events-none absolute bottom-4 right-4 z-10">
         <TransparentLogo
-          src={selectedLogo.image}
-          crop={watermarkCrop}
+          src={watermarkSrc}
           alt={`${selectedLogo.name} watermark`}
           className={cn(
             "object-contain drop-shadow-[0_12px_22px_rgba(0,0,0,0.6)]",

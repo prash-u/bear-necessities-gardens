@@ -4,7 +4,8 @@ import { aboutStats } from "@/data/siteContent";
 
 const AboutSection = () => {
   const { selectedLogo } = useActiveLogo();
-  const isSplitMode = "previewCrops" in selectedLogo;
+  const previewImages = "previewImages" in selectedLogo ? selectedLogo.previewImages : [selectedLogo.image];
+  const isSplitMode = previewImages.length > 1;
 
   return (
     <section id="about" className="relative overflow-hidden bg-background py-20 md:py-28">
@@ -15,23 +16,23 @@ const AboutSection = () => {
             <p className="mb-2 font-brand text-sm font-medium uppercase tracking-widest text-primary">
               About
             </p>
-            <h2 className="mb-6 text-3xl font-bold text-foreground md:text-5xl">
+            <h2 className="mb-6 max-w-3xl text-4xl font-bold leading-[0.98] text-foreground md:text-6xl">
               Taking care of the bear necessities of your garden.
             </h2>
-            <p className="mb-4 leading-relaxed text-muted-foreground">
+            <p className="mb-4 max-w-2xl text-lg leading-9 text-muted-foreground">
               Bear Necessities Gardens is designed to feel personal, reliable,
               and quietly premium. The focus is on outdoor spaces that look
               considered and well-kept, whether they need regular maintenance,
               a seasonal reset, or a tidy-up that brings everything back into
               shape.
             </p>
-            <p className="mb-6 leading-relaxed text-muted-foreground">
+            <p className="mb-6 max-w-2xl text-lg leading-9 text-muted-foreground">
               The tone stays slightly playful, but the work is serious:
               dependable care, thoughtful presentation, and gardens that feel
               easier to enjoy. No hard sell, no fluff, just the right details
               handled well.
             </p>
-            <p className="mb-6 font-brand text-sm uppercase tracking-[0.18em] text-accent">
+            <p className="mb-6 max-w-2xl text-sm uppercase tracking-[0.12em] text-accent/90">
               The B.E.A.R. standard: bold work, exacting finish, attentive care, reliable service.
             </p>
             <div className="grid max-w-xl grid-cols-2 gap-6 md:grid-cols-4">
@@ -52,22 +53,20 @@ const AboutSection = () => {
                 <div className="absolute inset-x-[14%] inset-y-[18%] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.16)_0%,rgba(255,255,255,0.05)_38%,transparent_74%)] blur-2xl" />
                 {isSplitMode ? (
                   <div className="relative z-10 flex w-full items-center justify-center gap-4">
-                    {selectedLogo.previewCrops.map((crop, index) => (
+                    {previewImages.map((previewImage, index) => (
                       <TransparentLogo
                         key={`${selectedLogo.id}-${index}`}
-                        src={selectedLogo.image}
-                        crop={crop}
+                        src={previewImage}
                         alt={`${selectedLogo.name} variant ${index + 1}`}
-                        className="h-auto max-h-52 w-auto max-w-[48%] object-contain drop-shadow-[0_24px_38px_rgba(0,0,0,0.42)] md:max-h-64"
+                        className="h-auto max-h-52 w-auto max-w-[46%] object-contain drop-shadow-[0_18px_30px_rgba(0,0,0,0.28)] md:max-h-64"
                       />
                     ))}
                   </div>
                 ) : (
                   <TransparentLogo
-                    src={selectedLogo.image}
-                    crop={"uiCrop" in selectedLogo ? selectedLogo.uiCrop : undefined}
+                    src={previewImages[0]}
                     alt={`${selectedLogo.name} logo concept`}
-                    className="relative z-10 h-auto w-full max-w-[96%] object-contain drop-shadow-[0_18px_30px_rgba(0,0,0,0.32)]"
+                    className="relative z-10 h-auto w-full max-w-[90%] object-contain drop-shadow-[0_14px_28px_rgba(0,0,0,0.24)]"
                   />
                 )}
               </div>

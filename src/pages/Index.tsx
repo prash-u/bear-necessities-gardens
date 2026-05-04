@@ -29,9 +29,9 @@ const Index = () => {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
         <Header activeMode={activeMode} />
-        <StyleSwitcher activeMode={activeMode} onChange={setActiveMode} />
         <HeroSection activeMode={activeMode} />
         <AboutSection />
+        <StyleSwitcher activeMode={activeMode} onChange={setActiveMode} />
         <ServicesSection />
         <ProjectTypesSection />
         <ProcessSection />
