@@ -31,13 +31,16 @@ const AboutSection = () => {
               easier to enjoy. No hard sell, no fluff, just the right details
               handled well.
             </p>
+            <p className="mb-6 font-brand text-sm uppercase tracking-[0.18em] text-accent">
+              The B.E.A.R. standard: bold work, exacting finish, attentive care, reliable service.
+            </p>
             <div className="grid max-w-xl grid-cols-2 gap-6 md:grid-cols-4">
               {aboutStats.map((stat) => (
-                <div key={stat.label} className="rounded-xl border border-white/8 bg-white/[0.03] p-4">
+                <div key={stat.label} className="flex min-h-[9.25rem] flex-col justify-between rounded-xl border border-white/8 bg-white/[0.03] p-4">
                   <p className="font-brand text-3xl font-bold text-primary md:text-4xl">
                     {stat.value}
                   </p>
-                  <p className="mt-2 text-xs uppercase tracking-[0.14em] text-muted-foreground">{stat.label}</p>
+                  <p className="mt-3 text-[11px] uppercase tracking-[0.12em] text-muted-foreground">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -62,8 +65,9 @@ const AboutSection = () => {
                 ) : (
                   <TransparentLogo
                     src={selectedLogo.image}
+                    crop={"uiCrop" in selectedLogo ? selectedLogo.uiCrop : undefined}
                     alt={`${selectedLogo.name} logo concept`}
-                    className="relative z-10 h-auto w-full max-w-[88%] object-contain drop-shadow-[0_24px_38px_rgba(0,0,0,0.42)]"
+                    className="relative z-10 h-auto w-full max-w-[96%] object-contain drop-shadow-[0_18px_30px_rgba(0,0,0,0.32)]"
                   />
                 )}
               </div>

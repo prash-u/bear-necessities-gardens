@@ -38,15 +38,15 @@ const WatermarkedImage = ({
         height={height}
         className={cn("h-full w-full object-cover", className)}
       />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(0,0,0,0.45),transparent_22%)]" />
-      <div className="pointer-events-none absolute bottom-3 right-3 z-10">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(0,0,0,0.52),transparent_28%)]" />
+      <div className="pointer-events-none absolute bottom-4 right-4 z-10">
         <TransparentLogo
           src={selectedLogo.image}
           crop={watermarkCrop}
           alt={`${selectedLogo.name} watermark`}
           className={cn(
             "object-contain drop-shadow-[0_12px_22px_rgba(0,0,0,0.6)]",
-            isWideMark ? "h-7 w-auto max-w-[6.75rem] md:h-8 md:max-w-[7.75rem]" : "h-10 w-auto max-w-[5rem] md:h-12 md:max-w-[6rem]",
+            isWideMark ? "h-10 w-auto max-w-[9rem] md:h-11 md:max-w-[10rem]" : "h-14 w-auto max-w-[7rem] md:h-16 md:max-w-[8rem]",
           )}
         />
       </div>

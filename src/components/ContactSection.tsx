@@ -110,14 +110,14 @@ const ContactSection = () => {
             </div>
           </div>
 
-          <div className="rounded-[1.75rem] border border-border bg-foreground p-8 text-primary-foreground md:p-10">
-            <p className="text-sm font-medium uppercase tracking-[0.22em] text-primary-foreground/70">
+          <div className="rounded-[1.75rem] border border-white/10 bg-card/95 p-8 text-foreground shadow-[0_24px_80px_-48px_rgba(0,0,0,0.45)] md:p-10">
+            <p className="text-sm font-medium uppercase tracking-[0.22em] text-accent">
               Enquiry form
             </p>
             <h3 className="mt-4 text-balance text-3xl font-semibold">
-              Tell Bear Necessities Gardens what your space needs.
+              Tell Bear Necessities Gardens what your garden needs.
             </h3>
-            <p className="mt-4 text-base leading-8 text-primary-foreground/75">
+            <p className="mt-4 text-base leading-8 text-muted-foreground">
               Whether the job is a tidy-up, landscaping, planting, or regular
               upkeep, a clear first message makes it easier to understand the
               space and recommend the right next step.
@@ -125,7 +125,7 @@ const ContactSection = () => {
 
             <form onSubmit={handleSubmit} className="mt-8 space-y-4">
               <div>
-                <label className="mb-2 block text-sm font-medium text-primary-foreground/85">
+                <label className="mb-2 block text-sm font-medium text-foreground/85">
                   Name
                 </label>
                 <input
@@ -133,12 +133,12 @@ const ContactSection = () => {
                   required
                   value={formData.name}
                   onChange={handleChange("name")}
-                  className="w-full rounded-xl border border-primary-foreground/15 bg-primary-foreground/5 px-4 py-3 text-sm text-primary-foreground placeholder:text-primary-foreground/45 focus:outline-none focus:ring-2 focus:ring-primary-foreground/40"
+                  className="w-full rounded-xl border border-white/10 bg-background/60 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/45"
                   placeholder="Your name"
                 />
               </div>
               <div>
-                <label className="mb-2 block text-sm font-medium text-primary-foreground/85">
+                <label className="mb-2 block text-sm font-medium text-foreground/85">
                   Email
                 </label>
                 <input
@@ -146,12 +146,12 @@ const ContactSection = () => {
                   required
                   value={formData.email}
                   onChange={handleChange("email")}
-                  className="w-full rounded-xl border border-primary-foreground/15 bg-primary-foreground/5 px-4 py-3 text-sm text-primary-foreground placeholder:text-primary-foreground/45 focus:outline-none focus:ring-2 focus:ring-primary-foreground/40"
+                  className="w-full rounded-xl border border-white/10 bg-background/60 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/45"
                   placeholder="you@example.com"
                 />
               </div>
               <div>
-                <label className="mb-2 block text-sm font-medium text-primary-foreground/85">
+                <label className="mb-2 block text-sm font-medium text-foreground/85">
                   Project details
                 </label>
                 <textarea
@@ -159,7 +159,7 @@ const ContactSection = () => {
                   rows={5}
                   value={formData.message}
                   onChange={handleChange("message")}
-                  className="w-full rounded-xl border border-primary-foreground/15 bg-primary-foreground/5 px-4 py-3 text-sm text-primary-foreground placeholder:text-primary-foreground/45 focus:outline-none focus:ring-2 focus:ring-primary-foreground/40"
+                  className="w-full rounded-xl border border-white/10 bg-background/60 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/45"
                   placeholder="Tell us about the garden, the kind of help you need, and anything time-sensitive."
                 />
               </div>
@@ -171,7 +171,7 @@ const ContactSection = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-primary-foreground/20 bg-transparent text-primary-foreground hover:bg-primary-foreground/10"
+                  className="border-white/12 bg-transparent text-foreground hover:bg-white/5"
                   asChild
                 >
                   <a href={`mailto:${business.email}`}>
@@ -182,8 +182,8 @@ const ContactSection = () => {
               </div>
             </form>
 
-            <div className="mt-10 rounded-[1.5rem] border border-primary-foreground/10 bg-primary-foreground/5 p-5">
-              <p className="text-sm leading-7 text-primary-foreground/75">
+            <div className="mt-10 rounded-[1.5rem] border border-white/10 bg-background/40 p-5">
+              <p className="text-sm leading-7 text-muted-foreground">
                 If it helps, recent jobs and seasonal updates can also be seen
                 on Instagram alongside direct email enquiries.
               </p>

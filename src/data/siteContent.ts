@@ -43,7 +43,7 @@ export const navigation = [
 ];
 
 export const aboutStats = [
-  { value: "B", label: "Bold craftsmanship" },
+  { value: "B", label: "Bold work" },
   { value: "E", label: "Exacting finish" },
   { value: "A", label: "Attentive care" },
   { value: "R", label: "Reliable service" },
@@ -268,9 +268,10 @@ export const logoShowcaseModes = [
     summary: "The strongest all-rounder for the website, signage, and social headers.",
     type: "image" as const,
     image: option2LockupBear,
+    uiCrop: { x: 150, y: 180, width: 1105, height: 730 },
     heroTitle: "Bear Necessities Gardens",
     heroCopy:
-      "A complete lockup with the bear face baked into the main mark, giving the brand a clear hero logo without losing personality.",
+      "A complete lockup with the bear face baked into the mark, giving the business a clear signature identity without losing personality.",
   },
   {
     id: "full-wordmark",
@@ -278,9 +279,10 @@ export const logoShowcaseModes = [
     summary: "Bold and direct, with the name doing the heavy lifting at a glance.",
     type: "image" as const,
     image: option1FullWordmark,
+    uiCrop: { x: 60, y: 280, width: 1410, height: 520 },
     heroTitle: "Built around the full name.",
     heroCopy:
-      "This direction leans into immediate recognition, with the full business name front and centre in one high-impact graphic.",
+      "This direction leans into immediate recognition, with the full business name front and centre in one high-impact mark.",
   },
   {
     id: "bear-face",

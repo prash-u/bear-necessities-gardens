@@ -43,9 +43,9 @@ const HeroSection = ({ activeMode }: HeroSectionProps) => {
             <div className="absolute inset-x-[18%] inset-y-[28%] rounded-full bg-[radial-gradient(circle,rgba(215,25,32,0.18)_0%,rgba(215,25,32,0.08)_35%,transparent_72%)] blur-3xl" />
             <div className="relative z-10">
               {"previewCrops" in mode ? (
-                <div className="flex w-full items-center justify-center gap-5">
-                  {mode.previewCrops.map((crop, index) => (
-                    <TransparentLogo
+              <div className="flex w-full items-center justify-center gap-5">
+                {mode.previewCrops.map((crop, index) => (
+                  <TransparentLogo
                       key={`${mode.id}-${index}`}
                       src={mode.image}
                       crop={crop}
@@ -55,13 +55,14 @@ const HeroSection = ({ activeMode }: HeroSectionProps) => {
                   ))}
                 </div>
               ) : (
-                <TransparentLogo
-                  src={mode.image}
-                  alt={mode.name}
-                  className="h-auto w-full max-w-3xl drop-shadow-[0_24px_40px_rgba(0,0,0,0.45)]"
-                />
-              )}
-            </div>
+              <TransparentLogo
+                src={mode.image}
+                crop={"uiCrop" in mode ? mode.uiCrop : undefined}
+                alt={mode.name}
+                className="h-auto w-full max-w-3xl drop-shadow-[0_20px_36px_rgba(0,0,0,0.38)]"
+              />
+            )}
+          </div>
           </div>
 
           <h2
@@ -80,7 +81,7 @@ const HeroSection = ({ activeMode }: HeroSectionProps) => {
             className="animate-fade-in-up mx-auto mt-4 max-w-2xl text-base leading-8 text-primary-foreground/65"
             style={{ animationDelay: "0.48s" }}
           >
-            Viewing concept: <span className="font-semibold text-primary-foreground">{mode.name}</span>. {business.tagline}
+            Selected identity: <span className="font-semibold text-primary-foreground">{mode.name}</span>. {business.tagline}
           </p>
           <div
             className="animate-fade-in-up mt-8 flex flex-col justify-center gap-4 sm:flex-row"
