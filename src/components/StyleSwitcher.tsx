@@ -1,4 +1,5 @@
 import TransparentLogo from "@/components/TransparentLogo";
+import PaletteLab from "@/components/PaletteLab";
 import { logoShowcaseModes, type LogoShowcaseMode } from "@/data/siteContent";
 import { cn } from "@/lib/utils";
 
@@ -13,7 +14,7 @@ const StyleSwitcher = ({ activeMode, onChange }: StyleSwitcherProps) => {
       <div className="container py-5">
         <div className="mb-5 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
-            <p className="font-heading text-xs uppercase tracking-[0.24em] text-accent">
+            <p className="font-brand text-xs uppercase tracking-[0.24em] text-accent">
               Presentation Switcher
             </p>
             <h2 className="mt-2 font-display text-3xl leading-none text-foreground md:text-4xl">
@@ -25,6 +26,10 @@ const StyleSwitcher = ({ activeMode, onChange }: StyleSwitcherProps) => {
               context rather than judging them as isolated image files.
             </p>
           </div>
+        </div>
+
+        <div className="mb-6">
+          <PaletteLab />
         </div>
 
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">

@@ -43,9 +43,10 @@ export const navigation = [
 ];
 
 export const aboutStats = [
-  { value: "Neat", label: "Clean finish" },
-  { value: "Calm", label: "Thoughtful approach" },
-  { value: "Clear", label: "Simple enquiry path" },
+  { value: "B", label: "Bold craftsmanship" },
+  { value: "E", label: "Exacting finish" },
+  { value: "A", label: "Attentive care" },
+  { value: "R", label: "Reliable service" },
 ];
 
 export type ServiceItem = {

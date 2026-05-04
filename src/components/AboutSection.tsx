@@ -4,14 +4,15 @@ import { aboutStats } from "@/data/siteContent";
 
 const AboutSection = () => {
   const { selectedLogo } = useActiveLogo();
+  const isSplitMode = "previewCrops" in selectedLogo;
 
   return (
     <section id="about" className="relative overflow-hidden bg-background py-20 md:py-28">
-      <div className="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top_left,hsla(142,44%,45%,0.12),transparent_58%)]" />
+      <div className="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top_left,hsla(358,74%,46%,0.16),transparent_58%)]" />
       <div className="container px-4">
         <div className="grid items-center gap-12 md:grid-cols-2">
           <div>
-            <p className="mb-2 text-sm font-medium uppercase tracking-widest text-primary">
+            <p className="mb-2 font-brand text-sm font-medium uppercase tracking-widest text-primary">
               About
             </p>
             <h2 className="mb-6 text-3xl font-bold text-foreground md:text-5xl">
@@ -30,13 +31,13 @@ const AboutSection = () => {
               easier to enjoy. No hard sell, no fluff, just the right details
               handled well.
             </p>
-            <div className="flex flex-wrap gap-8">
+            <div className="grid max-w-xl grid-cols-2 gap-6 md:grid-cols-4">
               {aboutStats.map((stat) => (
-                <div key={stat.label}>
-                  <p className="font-heading text-2xl font-bold text-primary md:text-3xl">
+                <div key={stat.label} className="rounded-xl border border-white/8 bg-white/[0.03] p-4">
+                  <p className="font-brand text-3xl font-bold text-primary md:text-4xl">
                     {stat.value}
                   </p>
-                  <p className="text-xs text-muted-foreground">{stat.label}</p>
+                  <p className="mt-2 text-xs uppercase tracking-[0.14em] text-muted-foreground">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -44,16 +45,30 @@ const AboutSection = () => {
 
           <div className="flex justify-center">
             <div className="relative">
-              <div className="flex h-64 w-64 items-center justify-center rounded-[2rem] border border-border/60 bg-[linear-gradient(180deg,hsla(42,70%,97%,0.95),hsla(140,24%,92%,0.98))] shadow-[0_32px_120px_-56px_rgba(40,67,52,0.5)] animate-gentle-float md:h-80 md:w-80">
-                <TransparentLogo
-                  src={selectedLogo.image}
-                  crop={"uiCrop" in selectedLogo ? selectedLogo.uiCrop : undefined}
-                  alt={`${selectedLogo.name} logo concept`}
-                  className="h-32 w-32 object-contain md:h-44 md:w-44"
-                />
+              <div className="relative flex min-h-[19rem] w-[20rem] items-center justify-center overflow-hidden rounded-[2rem] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.14),transparent_25%),linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] px-6 shadow-[0_32px_120px_-56px_rgba(0,0,0,0.7)] animate-gentle-float md:min-h-[24rem] md:w-[28rem]">
+                <div className="absolute inset-x-[14%] inset-y-[18%] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.16)_0%,rgba(255,255,255,0.05)_38%,transparent_74%)] blur-2xl" />
+                {isSplitMode ? (
+                  <div className="relative z-10 flex w-full items-center justify-center gap-4">
+                    {selectedLogo.previewCrops.map((crop, index) => (
+                      <TransparentLogo
+                        key={`${selectedLogo.id}-${index}`}
+                        src={selectedLogo.image}
+                        crop={crop}
+                        alt={`${selectedLogo.name} variant ${index + 1}`}
+                        className="h-auto max-h-52 w-auto max-w-[48%] object-contain drop-shadow-[0_24px_38px_rgba(0,0,0,0.42)] md:max-h-64"
+                      />
+                    ))}
+                  </div>
+                ) : (
+                  <TransparentLogo
+                    src={selectedLogo.image}
+                    alt={`${selectedLogo.name} logo concept`}
+                    className="relative z-10 h-auto w-full max-w-[88%] object-contain drop-shadow-[0_24px_38px_rgba(0,0,0,0.42)]"
+                  />
+                )}
               </div>
               <div className="absolute -bottom-4 -right-4 h-24 w-24 rounded-full bg-primary/15 blur-xl" />
-              <div className="absolute -left-4 -top-4 h-16 w-16 rounded-full bg-secondary/60 blur-md" />
+              <div className="absolute -left-4 -top-4 h-16 w-16 rounded-full bg-accent/30 blur-md" />
             </div>
           </div>
         </div>

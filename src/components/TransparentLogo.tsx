@@ -20,7 +20,7 @@ const TransparentLogo = ({
   src,
   alt,
   className,
-  threshold = 242,
+  threshold = 228,
   crop,
 }: TransparentLogoProps) => {
   const [processedSrc, setProcessedSrc] = useState<string>(src);
@@ -96,7 +96,9 @@ const TransparentLogo = ({
           if (pixelIndex === undefined) continue;
 
           const offset = pixelIndex * 4;
-          data[offset + 3] = 0;
+          const whiteness = (data[offset] + data[offset + 1] + data[offset + 2]) / 3;
+          const normalized = Math.min(1, Math.max(0, (whiteness - threshold) / (255 - threshold)));
+          data[offset + 3] = Math.round(255 * (1 - normalized));
 
           const x = pixelIndex % canvas.width;
           const y = Math.floor(pixelIndex / canvas.width);

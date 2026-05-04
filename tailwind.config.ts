@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         display: ["Bebas Neue", "Oswald", "sans-serif"],
         heading: ["Oswald", "sans-serif"],
+        brand: ["Cinzel Decorative", "Cinzel", "serif"],
         body: ["Inter", "sans-serif"],
       },
       colors: {

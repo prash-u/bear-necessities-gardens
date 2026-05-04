@@ -28,7 +28,7 @@ const Header = ({ activeMode = logoShowcaseModes[0].id }: HeaderProps) => {
             <span className="font-heading text-lg font-semibold text-foreground md:text-xl">
               Bear Necessities <span className="text-accent">Gardens</span>
             </span>
-            <p className="hidden text-[11px] uppercase tracking-[0.18em] text-muted-foreground md:block">
+            <p className="hidden font-brand text-[11px] uppercase tracking-[0.18em] text-muted-foreground md:block">
               {selectedLogo.name}
             </p>
           </div>
