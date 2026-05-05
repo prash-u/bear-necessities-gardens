@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { ArrowUpRight, Quote, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import WatermarkedImage from "@/components/WatermarkedImage";
@@ -6,19 +7,23 @@ import {
   featuredCaseStudy,
   proofFeedback,
 } from "@/data/siteContent";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const ProofSection = () => {
+  const { ref, isVisible } = useScrollReveal();
+
   return (
-    <section className="py-20 md:py-28" id="proof">
-      <div className="container px-4">
-        <div className="mb-12 max-w-3xl">
+    <section className="relative overflow-hidden py-20 md:py-28" id="proof">
+      <div className="section-spotlight right-[10%] top-14 h-28 w-28 opacity-70" />
+      <div ref={ref} className={`container px-4 reveal-section ${isVisible ? "is-visible" : ""}`}>
+        <div className={`mb-12 max-w-3xl reveal-slide-left ${isVisible ? "is-visible" : ""}`}>
           <p className="mb-2 text-sm font-medium uppercase tracking-[0.24em] text-primary">
             Recent Work and Kind Words
           </p>
-          <h2 className="text-balance text-3xl font-bold text-foreground md:text-5xl">
+          <h2 className="text-balance text-3xl font-display text-foreground md:text-5xl lg:text-6xl">
             Care, quality, and attention people notice.
           </h2>
-          <p className="mt-4 text-base leading-8 text-muted-foreground">
+          <p className="mt-4 max-w-2xl text-base leading-8 text-muted-foreground md:text-lg">
             A strong finish is about more than cutting back or clearing up. It
             is the difference between a garden feeling merely done and feeling
             genuinely looked after.
@@ -26,7 +31,7 @@ const ProofSection = () => {
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
-          <article className="overflow-hidden rounded-[2rem] border border-border bg-card shadow-[0_24px_80px_-48px_rgba(40,67,52,0.4)]">
+          <article className={`cinematic-panel reveal-slide-left overflow-hidden rounded-[2rem] border border-border shadow-[0_24px_80px_-48px_rgba(40,67,52,0.4)] ${isVisible ? "is-visible" : ""}`}>
             <WatermarkedImage
               src={featuredCaseStudy.image}
               alt="Featured garden maintenance example"
@@ -45,7 +50,7 @@ const ProofSection = () => {
                 </span>
               </div>
 
-              <h3 className="mt-5 text-2xl font-semibold text-foreground md:text-3xl">
+              <h3 className="mt-5 text-2xl font-display text-foreground md:text-[2.4rem]">
                 {featuredCaseStudy.title}
               </h3>
               <p className="mt-4 text-sm leading-7 text-muted-foreground md:text-base">
@@ -76,7 +81,8 @@ const ProofSection = () => {
             {proofFeedback.map((item, index) => (
               <article
                 key={item.quote}
-                className="rounded-[1.75rem] border border-border bg-card/80 p-6 shadow-[0_18px_56px_-42px_rgba(40,67,52,0.35)] backdrop-blur"
+                className={`stagger-item cinematic-panel rounded-[1.75rem] border border-border p-6 shadow-[0_18px_56px_-42px_rgba(40,67,52,0.35)] ${isVisible ? "is-visible" : ""}`}
+                style={{ "--stagger-delay": `${index * 100}ms` } as CSSProperties}
               >
                 <div className="flex items-center justify-between gap-4">
                   <Quote className="h-5 w-5 text-primary" />

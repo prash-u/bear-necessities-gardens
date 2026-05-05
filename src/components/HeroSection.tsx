@@ -4,6 +4,7 @@ import WatermarkedImage from "@/components/WatermarkedImage";
 import TransparentLogo from "@/components/TransparentLogo";
 import { Button } from "@/components/ui/button";
 import { business, logoShowcaseModes, showcaseNotes, type LogoShowcaseMode } from "@/data/siteContent";
+import { useParallax } from "@/hooks/useParallax";
 
 type HeroSectionProps = {
   activeMode: LogoShowcaseMode["id"];
@@ -12,6 +13,8 @@ type HeroSectionProps = {
 const HeroSection = ({ activeMode }: HeroSectionProps) => {
   const mode = logoShowcaseModes.find((item) => item.id === activeMode) ?? logoShowcaseModes[0];
   const previewImages = "previewImages" in mode ? mode.previewImages : [mode.image];
+  const { ref: logoRef, style: logoStyle } = useParallax({ speed: -0.08 });
+  const { ref: notesRef, style: notesStyle } = useParallax({ speed: -0.05 });
 
   return (
     <section
@@ -29,16 +32,20 @@ const HeroSection = ({ activeMode }: HeroSectionProps) => {
       />
       <div className="absolute inset-0" style={{ background: "var(--hero-overlay)" }} />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(215,25,32,0.18),transparent_28%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,rgba(19,4,10,0.06)_55%,rgba(19,4,10,0.82)_100%)]" />
+      <div className="section-spotlight animate-ambient-pulse right-[8%] top-28 h-40 w-40" />
+      <div className="section-spotlight bottom-24 left-[10%] h-32 w-32 opacity-70" />
 
       <div className="container relative z-10 px-4 pb-16 pt-28 md:pb-24 md:pt-36">
         <div className="mx-auto max-w-5xl text-center">
-          <p className="animate-fade-in-up mb-4 text-sm uppercase tracking-[0.24em] text-accent md:text-base">
+          <p className="animate-fade-in-up mb-4 text-sm uppercase tracking-[0.28em] text-accent md:text-base">
             Premium landscaping and garden care
           </p>
 
           <div
+            ref={logoRef}
             className="animate-fade-in-up relative mx-auto mb-8 flex max-w-2xl items-center justify-center px-6 py-4"
-            style={{ animationDelay: "0.15s" }}
+            style={{ ...logoStyle, animationDelay: "0.15s" }}
           >
             <div className="absolute inset-x-[16%] inset-y-[24%] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.14)_0%,rgba(255,255,255,0.05)_40%,transparent_78%)] blur-2xl" />
             <div className="relative z-10">
@@ -64,13 +71,13 @@ const HeroSection = ({ activeMode }: HeroSectionProps) => {
           </div>
 
           <h2
-            className="animate-fade-in-up mx-auto max-w-4xl text-balance font-display text-5xl leading-[0.95] text-foreground sm:text-6xl md:text-7xl"
+            className="animate-fade-in-up mx-auto max-w-5xl text-balance font-display text-5xl leading-[0.92] text-foreground sm:text-6xl md:text-7xl lg:text-[6.5rem]"
             style={{ animationDelay: "0.3s" }}
           >
             Gardens that feel cared for, polished, and easy to enjoy.
           </h2>
           <p
-            className="animate-fade-in-up mx-auto mt-6 max-w-3xl text-lg leading-9 text-primary-foreground/78 md:text-xl"
+            className="animate-fade-in-up mx-auto mt-6 max-w-3xl text-lg leading-8 text-primary-foreground/78 md:text-[1.35rem] md:leading-9"
             style={{ animationDelay: "0.4s" }}
           >
             Bear Necessities Gardens offers thoughtful landscaping, tidy-ups, planting, and regular maintenance for outdoor spaces that deserve a stronger finish and a calmer overall feel.
@@ -121,13 +128,14 @@ const HeroSection = ({ activeMode }: HeroSectionProps) => {
         </div>
 
         <div
+          ref={notesRef}
           className="animate-fade-in-up mt-12 grid gap-4 md:mt-16 md:grid-cols-3"
-          style={{ animationDelay: "0.7s" }}
+          style={{ ...notesStyle, animationDelay: "0.7s" }}
         >
           {showcaseNotes.map((item) => (
             <div
               key={item}
-              className="rounded-md border border-primary-foreground/12 bg-primary-foreground/6 p-5 text-left backdrop-blur-sm"
+              className="cinematic-panel rounded-md border border-primary-foreground/12 p-5 text-left"
             >
               <p className="text-sm leading-7 text-primary-foreground/85">
                 {item}

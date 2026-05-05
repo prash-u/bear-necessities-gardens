@@ -1,6 +1,7 @@
 import TransparentLogo from "@/components/TransparentLogo";
 import PaletteLab from "@/components/PaletteLab";
 import { logoShowcaseModes, type LogoShowcaseMode } from "@/data/siteContent";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { cn } from "@/lib/utils";
 
 type StyleSwitcherProps = {
@@ -11,14 +12,15 @@ type StyleSwitcherProps = {
 const StyleSwitcher = ({ activeMode, onChange }: StyleSwitcherProps) => {
   const activeLogo =
     logoShowcaseModes.find((mode) => mode.id === activeMode) ?? logoShowcaseModes[0];
+  const { ref, isVisible } = useScrollReveal();
 
   return (
     <section className="border-b border-white/10 bg-white/[0.02] py-12 md:py-16">
-      <div className="container">
+      <div ref={ref} className={`container reveal-section ${isVisible ? "is-visible" : ""}`}>
         <details className="group overflow-hidden rounded-[1.75rem] border border-white/10 bg-card/50 shadow-[0_24px_70px_-50px_rgba(0,0,0,0.55)]">
           <summary className="cursor-pointer list-none px-6 py-5 md:px-8 md:py-6">
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-              <div className="max-w-2xl">
+              <div className={`max-w-2xl reveal-slide-left ${isVisible ? "is-visible" : ""}`}>
                 <p className="font-brand text-xs uppercase tracking-[0.22em] text-accent">
                   Client Review Mode
                 </p>
@@ -30,7 +32,7 @@ const StyleSwitcher = ({ activeMode, onChange }: StyleSwitcherProps) => {
                 </p>
               </div>
 
-              <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3">
+              <div className={`cinematic-panel reveal-slide-right flex items-center gap-4 rounded-2xl border border-white/10 px-4 py-3 ${isVisible ? "is-visible" : ""}`}>
                 <div className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-xl bg-black/10 p-2">
                   <TransparentLogo
                     src={"uiImage" in activeLogo ? activeLogo.uiImage : activeLogo.image}
